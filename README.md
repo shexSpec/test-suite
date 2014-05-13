@@ -15,5 +15,6 @@ There are 4 types of tests:
 * Valid shapes
 * Not valid shapes
  
+More information: http://shexspec.github.io/test-suite
 
  
