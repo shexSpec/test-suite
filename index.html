@@ -63,6 +63,14 @@
 	
 <section>
 <h2>Namespace prefixes</h2>
+<dl>
+<dt><code>shext</code></dt>
+<dd><code><a href="http://www.w3.org/ns/shextest#">http://www.w3.org/ns/shextest#</a></code></dd>
+
+<dt><code>mf</code></dt>
+<dd><code><a href="http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#">http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#</a></code></dd>
+
+
 </section>
 
 <section>
@@ -73,7 +81,7 @@
 <p>These tests have type <code>shext:PositiveSyntax</code>
 
 <p>Example:
-<pre>
+<pre data-lang="text/turtle">
 &lt;#a-string-syntax> rdf:type shext:PositiveSyntax ;
    mf:name      "a-string-syntax" ;
    rdfs:comment "Shex Expression with an single arc rule" ;
@@ -87,7 +95,7 @@
 <h2 id="Negative">Negative syntax</h2>
 <p>These tests contain examples with bad syntax.
 
-<p>These tests have type <code>shext:NegativeSyntax<code>
+<p>These tests have type <code>shext:NegativeSyntax</code>
 
 
 </section>
@@ -99,9 +107,9 @@
  files and a list of shapes that the IRI has according
  to the schema.
 
-<p>These tests have type <code>shext:Valid<code> 
+<p>These tests have type <code>shext:Valid</code> 
 
-<pre>
+<pre data-lang="text/turtle">
 &lt;#conjunction1> rdf:type shext:Valid ;
    mf:name      "conjunction1" ;
    rdfs:comment "conjunction of two arcs" ;
@@ -122,9 +130,9 @@
  parsed. They also refer to a IRI which is part of 
  the RDF graph but has no valid shape in the schema.
 
-<p>These tests have type <code>shext:NotValid<code> 
+<p>These tests have type <code>shext:NotValid</code> 
  
-<pre>
+<pre data-lang="text/turtle">
 &lt;#conjunction1> rdf:type shext:NotValid ;
    mf:name      "conjunction2" ;
    rdfs:comment "conjunction of one arc fails" ;
