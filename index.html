@@ -1,0 +1,140 @@
+  <head>
+    <title>LandPortal Technical Documentation: RDF Data Portal Model</title>
+    <meta charset='utf-8'>
+    <script src='http://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+	<link rel="stylesheet" href="stylesheets/codemirror.css"> 
+	<script src="javascripts/codemirror-compressed.js"></script>
+	<script src="http://codemirror.net/mode/sparql/sparql.js"></script>
+	<script src="http://codemirror.net/addon/runmode/runmode.js"></script>
+	<script src="http://codemirror.net/addon/runmode/colorize.js"></script>
+
+    <script class='remove'>
+      var respecConfig = {
+	  //    additionalCopytirhgHolders="",
+          specStatus: "unofficial",
+          shortName:  "ShexSpecTestSuite",
+          editors: [
+                {   name:       "Eric Prud'Hummeaux",
+                    url:        "http://www.w3.org/People/Eric/",
+                    company:    "W3c",
+                    companyURL: "http://www.w3.org" },
+                {   name:       "Jose Emilio Labra Gayo",
+                    url:        "http://di.uniovi.es/~labra",
+                    company:    "University of Oviedo - WESO Research Group",
+                    companyURL: "http://weso.es" }
+          ],
+          previousMaturity: "FPWD",
+	      previousPublishDate:  "2013-05-13",
+          wg:           "ShexSpecTestSuite",
+          wgURI:        "http://www.w3.org/2013/ShEx/",
+//          wgPublicList: "public-animals",
+//          wgPatentURI:  "http://www.w3.org/2004/01/pp-impl/424242/status",
+      };
+    </script>
+	<link rel="stylesheet" href="stylesheets/codemirror.css">
+    <script src="javascripts/codemirror.js"></script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        This document describes the test suite of the <a href="http://www.w3.org/2013/ShEx">Shape Expressions Language</a>.
+      </p>
+    </section>
+
+    <section id='sotd'>
+      <p>Initial version</p>
+    </section>
+    
+    <section class='informative'>
+      <h2>Introduction</h2>
+
+	  <p>The contents are inspired by the 
+		<a href="http://www.w3.org/2011/rdf-wg/wiki/RDF_Test_Suites">RDF test suite</a>
+
+	<p>There are four types of tests:
+	<ul>
+	<li><a href="#Positive">Positive syntax</a>
+	<li><a href="#Negative">Negative syntax</a>
+	<li><a href="#Valid">Valid</a>
+	<li><a href="#NotValid">Not valid</a>
+	</ul>
+</section>
+	
+<section>
+<h2>Namespace prefixes</h2>
+</section>
+
+<section>
+<h2 id="Positive">Positive Syntax</h2>
+
+<p>These tests contain example of Schema files 
+ which can be parsed</p>
+<p>These tests have type <code>shext:PositiveSyntax</code>
+
+<p>Example:
+<pre>
+&lt;#a-string-syntax> rdf:type shext:PositiveSyntax ;
+   mf:name      "a-string-syntax" ;
+   rdfs:comment "Shex Expression with an single arc rule" ;
+   shext:status mf:proposed ;
+   shext:schema <a-string.shex> ;
+   .
+</pre>
+</section>
+
+<section>
+<h2 id="Negative">Negative syntax</h2>
+<p>These tests contain examples with bad syntax.
+
+<p>These tests have type <code>shext:NegativeSyntax<code>
+
+
+</section>
+<section>
+<h2>Valid</h2>
+
+<p>These tests contain schemas and turtle files that 
+ can be parsed. They also refer to a IRI from the turtle
+ files and a list of shapes that the IRI has according
+ to the schema.
+
+<p>These tests have type <code>shext:Valid<code> 
+
+<pre>
+&lt;#conjunction1> rdf:type shext:Valid ;
+   mf:name      "conjunction1" ;
+   rdfs:comment "conjunction of two arcs" ;
+   shext:status mf:proposed ;
+   shext:schema   &lt;conjunction.shex> ;
+   shext:instance &lt;conjunction1.ttl> ;
+   shext:iri      ex:x ;
+   shext:shape 	  ex:a 
+   .
+</pre>
+ 
+</section>
+
+<section>
+<h2>Not valid</h2>
+
+<p>These tests contain schemas and RDFs that can be 
+ parsed. They also refer to a IRI which is part of 
+ the RDF graph but has no valid shape in the schema.
+
+<p>These tests have type <code>shext:NotValid<code> 
+ 
+<pre>
+&lt;#conjunction1> rdf:type shext:NotValid ;
+   mf:name      "conjunction2" ;
+   rdfs:comment "conjunction of one arc fails" ;
+   shext:status mf:proposed ;
+   shext:schema   &lt;conjunction.shex> ;
+   shext:instance &lt;conjunction2.ttl> ;
+   shext:iri      ex:x 
+   .
+</pre>
+
+</section>
+</body>
+</html>
