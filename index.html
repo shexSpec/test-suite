@@ -1,3 +1,4 @@
+<html>
   <head>
     <title>Shape Expressions Test Suite</title>
     <meta charset='utf-8'>
@@ -34,8 +35,8 @@
     </script>
 	<link rel="stylesheet" href="stylesheets/codemirror.css">
     <script src="javascripts/codemirror.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <section id='abstract'>
       <p>
         This document describes the test suite of the <a href="http://www.w3.org/2013/ShEx">Shape Expressions Language</a>.
@@ -80,13 +81,13 @@
  which can be parsed</p>
 <p>These tests have type <code>shext:PositiveSyntax</code>
 
-<p>Example:
+<p>Example:</p>
 <pre data-lang="text/turtle">
-&lt;#a-string-syntax> rdf:type shext:PositiveSyntax ;
+&lt;#a-string-syntax&gt; rdf:type shext:PositiveSyntax ;
    mf:name      "a-string-syntax" ;
    rdfs:comment "Shex Expression with an single arc rule" ;
    shext:status mf:proposed ;
-   shext:schema <a-string.shex> ;
+   shext:schema &lt;a-string.shex&gt; ;
    .
 </pre>
 </section>
@@ -100,7 +101,7 @@
 
 </section>
 <section>
-<h2>Valid</h2>
+<h2 id="Valid">Valid</h2>
 
 <p>These tests contain schemas and turtle files that 
  can be parsed. They also refer to a IRI from the turtle
@@ -108,6 +109,12 @@
  to the schema.
 
 <p>These tests have type <code>shext:Valid</code> 
+
+<p>The following example declares a valid test where
+ <code>ex:x</code> has shape <code>ex:a</code> in the 
+ turtle file <code>conjunction1.ttl</code> using the
+ schema <code>conjunction.shex</code>
+</p>
 
 <pre data-lang="text/turtle">
 &lt;#conjunction1> rdf:type shext:Valid ;
@@ -124,14 +131,15 @@
 </section>
 
 <section>
-<h2>Not valid</h2>
+<h2 id="NotValid">Not valid</h2>
 
 <p>These tests contain schemas and RDFs that can be 
  parsed. They also refer to a IRI which is part of 
  the RDF graph but has no valid shape in the schema.
 
 <p>These tests have type <code>shext:NotValid</code> 
- 
+
+<p>Example:</p>
 <pre data-lang="text/turtle">
 &lt;#conjunction1> rdf:type shext:NotValid ;
    mf:name      "conjunction2" ;
