@@ -51,9 +51,13 @@
       <h2>Introduction</h2>
 
 	  <p>The contents are inspired by the 
-		<a href="http://www.w3.org/2011/rdf-wg/wiki/RDF_Test_Suites">RDF test suite</a>
+		<a href="http://www.w3.org/2011/rdf-wg/wiki/RDF_Test_Suites">RDF test suite</a>. </p>
+	 <p>The tests are available 
+		in the folder <a href="tests">tests</a>. 
+		The source code of this project is located in <a href="https://github.com/shexspec/test-suite">Github</a>
+    </p>		
 
-	<p>There are four types of tests:
+	<p>There are four types of tests:</p>
 	<ul>
 	<li><a href="#Positive">Positive syntax</a>
 	<li><a href="#Negative">Negative syntax</a>
@@ -78,8 +82,7 @@
 <h2 id="Positive">Positive Syntax</h2>
 
 <p>These tests contain example of Schema files 
- which can be parsed</p>
-<p>These tests have type <code>shext:PositiveSyntax</code>
+ which can be parsed. They have type <code>shext:PositiveSyntax</code>
 
 <p>Example:</p>
 <pre data-lang="text/turtle">
@@ -95,20 +98,22 @@
 <section>
 <h2 id="Negative">Negative syntax</h2>
 <p>These tests contain examples with bad syntax.
-
-<p>These tests have type <code>shext:NegativeSyntax</code>
-
-
+They have type <code>shext:NegativeSyntax</code> and their structure is the same as 
+the previous tests.
 </section>
+
 <section>
 <h2 id="Valid">Valid</h2>
 
-<p>These tests contain schemas and turtle files that 
- can be parsed. They also refer to a IRI from the turtle
- files and a list of shapes that the IRI has according
- to the schema.
-
-<p>These tests have type <code>shext:Valid</code> 
+<p>These tests contain a reference to a schema (ShEx file) 
+ and a reference to a RDF file (turtle file) that 
+ can be parsed. They have type <code>shext:Valid</code>.</p>
+ 
+<p>They also contain a reference to a IRI in the turtle
+ file and a list of shapes that the IRI should have according
+ to the schema.</p>
+<p>The tests are considered valid is the system can infer that 
+ the IRI has those shapes.</p>
 
 <p>The following example declares a valid test where
  <code>ex:x</code> has shape <code>ex:a</code> in the 
