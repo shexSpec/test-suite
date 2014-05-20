@@ -1,0 +1,6 @@
+prefix : <http://example.org/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+:x :p :y .
+
+:y :p _:1 .

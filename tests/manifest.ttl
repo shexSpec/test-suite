@@ -419,3 +419,43 @@
    shext:iri    ex:x ; 
    shext:shape  ex:a
    .   
+   
+<#nonIRI1> rdf:type shext:Valid ;
+   mf:name      "nonIRI1" ;
+   rdfs:comment "A literal is non IRI" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonIRI.shex> ;
+   shext:instance <nonIRI.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .      
+   
+<#nonIRI2> rdf:type shext:Valid ;
+   mf:name      "nonIRI2" ;
+   rdfs:comment "A bnode is not an IRI" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonIRI.shex> ;
+   shext:instance <nonIRI.ttl> ;
+   shext:iri    ex:y ; 
+   shext:shape  ex:a
+   .         
+   
+<#nonLiteral1> rdf:type shext:Valid ;
+   mf:name      "nonLiteral1" ;
+   rdfs:comment "A iri is nonLiteral" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonLiteral.shex> ;
+   shext:instance <nonLiteral.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .      
+   
+<#nonLiteral2> rdf:type shext:Valid ;
+   mf:name      "nonIRI2" ;
+   rdfs:comment "A bnode is nonLiteral" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonLiteral.shex> ;
+   shext:instance <nonLiteral.ttl> ;
+   shext:iri    ex:y ; 
+   shext:shape  ex:a
+   .            
