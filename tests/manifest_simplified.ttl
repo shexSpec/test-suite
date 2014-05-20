@@ -1,0 +1,25 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mf:     <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix qt:     <http://www.w3.org/2001/sw/DataAccess/tests/test-query#> .
+@prefix shext:   <http://www.w3.org/ns/shextest#> .
+@prefix ex:     <http://example.org/> .
+
+
+<>  rdf:type mf:Manifest ;
+    rdfs:comment "ShEx tests" ;
+    mf:entries
+    (
+	<#user2>
+    ) .
+
+<#user2> rdf:type shext:Valid ;
+   mf:name      "user2" ;
+   rdfs:comment "User and issue shape simple" ;
+   shext:status mf:proposed ;
+   shext:schema   <user1.shex> ;
+   shext:instance <user1.ttl> ;
+   shext:iri    ex:issue1 ; 
+   shext:shape  ex:IssueShape
+   .
+   

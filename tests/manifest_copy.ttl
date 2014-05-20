@@ -20,7 +20,7 @@
 	<#star0> <#star1> <#star2> <#star3>
 	<#plus0no> <#plus1> <#plus2> <#plus3>
 	<#country-observations-valid>
-	<#user1> <#user2>
+	<#user1>
     ) .
 
 <#a-string-syntax> rdf:type shext:PositiveSyntax ;
@@ -390,11 +390,11 @@
    shext:shape  ex:country
    .
 
-<#user1> rdf:type shext:Valid ;
+<#user1> rdf:type shext:NonValid ;
    mf:name      "user1" ;
    rdfs:comment "User and issue shape simple" ;
    shext:status mf:proposed ;
-   shext:schema   <user1.shex> ;
+   shext:schema   <userff1.shex> ;
    shext:instance <user1.ttl> ;
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
@@ -404,18 +404,9 @@
    mf:name      "user2" ;
    rdfs:comment "User and issue shape simple" ;
    shext:status mf:proposed ;
-   shext:schema   <user2.shex> ;
-   shext:instance <user2.ttl> ;
+   shext:schema   <user1.shex> ;
+   shext:instance <user1.ttl> ;
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
    .
    
-<#iri> rdf:type shext:Valid ;
-   mf:name      "iri1" ;
-   rdfs:comment "A simple IRI" ;
-   shext:status mf:proposed ;
-   shext:schema   <iri.shex> ;
-   shext:instance <iri.ttl> ;
-   shext:iri    ex:x ; 
-   shext:shape  ex:a
-   .   
