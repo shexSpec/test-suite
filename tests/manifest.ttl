@@ -608,7 +608,7 @@
    
 <#abq-0> rdf:type shext:NotValid ;
    mf:name      "abq-0" ;
-   rdfs:comment "abq -> 0 = Fail" ;
+   rdfs:comment "ab? -> 0 = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <0.ttl> ;
@@ -644,7 +644,7 @@
 
 <#abq-a> rdf:type shext:Valid ;
    mf:name      "abq-a" ;
-   rdfs:comment "abq -> a = ALL" ;
+   rdfs:comment "ab? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <a.ttl> ;
@@ -654,7 +654,7 @@
    
 <#abq-A> rdf:type shext:NotValid ;
    mf:name      "abq-A" ;
-   rdfs:comment "abq -> A = Fail" ;
+   rdfs:comment "ab? -> A = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <notA.ttl> ;
@@ -663,7 +663,7 @@
    
 <#aOrb-a> rdf:type shext:Valid ;
    mf:name      "aOrb-a" ;
-   rdfs:comment "aOrb -> a = ALL" ;
+   rdfs:comment "a|b -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <a.ttl> ;
@@ -674,7 +674,7 @@
 # This test depends on the Open/Closed shapes semantics
 <#aOrb-Ab> rdf:type shext:NotValid ;
    mf:name      "aOrb-Ab" ;
-   rdfs:comment "aOrb -> Ab = FAIL" ;
+   rdfs:comment "a|b -> Ab = FAIL" ;
    shext:status shext:discussion ;
    shext:schema   <aOrb.shex> ;
    shext:instance <notAb.ttl> ;
@@ -685,7 +685,7 @@
 # This test depends on the Open/Closed shapes semantics
 <#aOrb-aB> rdf:type shext:NotValid ;
    mf:name      "aOrb-aB" ;
-   rdfs:comment "aOrb -> aB = FAIL" ;
+   rdfs:comment "a|b -> aB = FAIL" ;
    shext:status shext:discussion ;
    shext:schema   <aOrb.shex> ;
    shext:instance <anotB.ttl> ;
@@ -695,7 +695,7 @@
    
 <#aOrb-0> rdf:type shext:NotValid ;
    mf:name      "aOrb-0" ;
-   rdfs:comment "aOrb -> 0 = FAIL" ;
+   rdfs:comment "a|b -> 0 = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
@@ -704,7 +704,7 @@
 
 <#aOrb-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb-ab" ;
-   rdfs:comment "aOrb -> ab = FAIL" ;
+   rdfs:comment "a|b -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <ab.ttl> ;
@@ -722,7 +722,7 @@
    
 <#aOrb-B> rdf:type shext:NotValid ;
    mf:name      "aOrb-B" ;
-   rdfs:comment "aOrb -> B = FAIL" ;
+   rdfs:comment "a|b -> B = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <notB.ttl> ;
@@ -731,7 +731,7 @@
    
 <#aOrb-AB> rdf:type shext:NotValid ;
    mf:name      "aOrb-AB" ;
-   rdfs:comment "aOrb -> AB = FAIL" ;
+   rdfs:comment "a|b -> AB = FAIL" ;
    shext:status shext:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <notAnotB.ttl> ;
@@ -741,7 +741,7 @@
 # Different semantics in Jesse's tests   
 <#aqOrbq-0> rdf:type shext:Valid ;
    mf:name      "aqOrbq-0" ;
-   rdfs:comment "aqOrbq -> 0 = ALL" ;
+   rdfs:comment "(a?|b)? -> 0 = ALL" ;
    shext:status shext:discussion ;
    shext:schema   <aqOrbq.shex> ;
    shext:instance <0.ttl> ;
@@ -751,7 +751,7 @@
    
 <#aqOrbq-a> rdf:type shext:Valid ;
    mf:name      "aqOrbq-a" ;
-   rdfs:comment "aqOrbq -> a = ALL" ;
+   rdfs:comment "(a?|b)? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOrbq.shex> ;
    shext:instance <a.ttl> ;
@@ -761,7 +761,7 @@
    
 <#aqOrbq-b> rdf:type shext:Valid ;
    mf:name      "aqOrbq-b" ;
-   rdfs:comment "aqOrbq -> b = ALL" ;
+   rdfs:comment "a?|b? -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOrbq.shex> ;
    shext:instance <b.ttl> ;
@@ -771,7 +771,7 @@
 
 <#aqOrbq-ab> rdf:type shext:NotValid ;
    mf:name      "aqOrbq-ab" ;
-   rdfs:comment "aqOrbq -> ab = FAIL" ;
+   rdfs:comment "a?|b? -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOrbq.shex> ;
    shext:instance <ab.ttl> ;
@@ -782,7 +782,7 @@
 # Different semantics in Jesse's tests
 <#_aOrb_q-0> rdf:type shext:Valid ;
    mf:name      "_aOrb_q-0" ;
-   rdfs:comment "_aOrb_q -> 0 = ALL" ;
+   rdfs:comment "(a|b)? -> 0 = ALL" ;
    shext:status shext:discussion ;
    shext:schema   <_aOrb_q.shex> ;
    shext:instance <0.ttl> ;
@@ -794,7 +794,7 @@
 # Depends on Open/Close semantics
 <#_aOrb_q-A> rdf:type shext:NotValid ;
    mf:name      "_aOrb_q-A" ;
-   rdfs:comment "_aOrb_q -> A = Fail" ;
+   rdfs:comment "(a|b)? -> A = Fail" ;
    shext:status shext:discussion ;
    shext:schema   <_aOrb_q.shex> ;
    shext:instance <notA.ttl> ;
@@ -805,7 +805,7 @@
 # Depends on Open/Close semantics
 <#aqOrb-0> rdf:type shext:Valid ;
    mf:name      "aqOrb-0" ;
-   rdfs:comment "aqOrb -> 0 = ALL" ;
+   rdfs:comment "a?|b -> 0 = ALL" ;
    shext:status shext:discussion ;
    shext:schema   <aqOrb.shex> ;
    shext:instance <0.ttl> ;
@@ -817,7 +817,7 @@
 # Depends on Open/Close semantics
 <#aqOrb-B> rdf:type shext:NotValid ;
    mf:name      "aqOrb-B" ;
-   rdfs:comment "aqOrb -> B = Fail" ;
+   rdfs:comment "a?|b -> B = Fail" ;
    shext:status shext:discussion ;
    shext:schema   <aqOrb.shex> ;
    shext:instance <notB.ttl> ;
@@ -827,7 +827,7 @@
    
 <#aOrb_c-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb_c-ab" ;
-   rdfs:comment "aOrb_c -> ab = Fail" ;
+   rdfs:comment "(a|b)c -> ab = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_c.shex> ;
    shext:instance <ab.ttl> ;
@@ -837,7 +837,7 @@
    
 <#aOrb_cq-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb_cq-ab" ;
-   rdfs:comment "aOrb_cq -> ab = Fail" ;
+   rdfs:comment "(a|b)c? -> ab = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <ab.ttl> ;
@@ -847,7 +847,7 @@
    
 <#aOrb_cq-abc> rdf:type shext:NotValid ;
    mf:name      "aOrb_cq-abc" ;
-   rdfs:comment "aOrb_cq -> abc = Fail" ;
+   rdfs:comment "(a|b)c? -> abc = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <abc.ttl> ;
@@ -857,7 +857,7 @@
    
 <#aOrb_cq-abC> rdf:type shext:NotValid ;
    mf:name      "aOrb_cq-abC" ;
-   rdfs:comment "aOrb_cq -> abC = Fail" ;
+   rdfs:comment "(a|b)c? -> abC = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -867,7 +867,7 @@
    
 <#aOrb_cq-ac> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-ac" ;
-   rdfs:comment "aOrb_cq -> ac = ALL" ;
+   rdfs:comment "(a|b)c? -> ac = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <ac.ttl> ;
@@ -877,7 +877,7 @@
    
 <#aOrb_cq-bc> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-bc" ;
-   rdfs:comment "aOrb_cq -> bc = ALL" ;
+   rdfs:comment "(a|b)c? -> bc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <bc.ttl> ;
@@ -887,7 +887,7 @@
    
 <#aOrb_cq-a> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-a" ;
-   rdfs:comment "aOrb_cq -> a = ALL" ;
+   rdfs:comment "(a|b)c? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <a.ttl> ;
@@ -897,7 +897,7 @@
    
 <#aOrb_cq-b> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-b" ;
-   rdfs:comment "aOrb_cq -> b = ALL" ;
+   rdfs:comment "(a|b)c? -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <b.ttl> ;
@@ -907,7 +907,7 @@
    
 <#a_bOrc-bc> rdf:type shext:NotValid ;
    mf:name      "a_bOrc-bc" ;
-   rdfs:comment "a_bOrc -> bc = FAIL" ;
+   rdfs:comment "a(b|c) -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -917,7 +917,7 @@
       
 <#aq_bOrc-abc> rdf:type shext:NotValid ;
    mf:name      "aq_bOrc-abc" ;
-   rdfs:comment "aq_bOrc -> abc = FAIL" ;
+   rdfs:comment "a?(b|c) -> abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -927,7 +927,7 @@
 	  
 <#aq_bOrc-Abc> rdf:type shext:NotValid ;
    mf:name      "aq_bOrc-Abc" ;
-   rdfs:comment "aq_bOrc -> Abc = FAIL" ;
+   rdfs:comment "a?(b|c) -> Abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <notAbc.ttl> ;
@@ -937,7 +937,7 @@
 	  
 <#aq_bOrc-bc> rdf:type shext:NotValid ;
    mf:name      "aq_bOrc-bc" ;
-   rdfs:comment "aq_bOrc -> bc = FAIL" ;
+   rdfs:comment "a?(b|c) -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -947,7 +947,7 @@
 	  
 <#aOrb_cOrb-abcd> rdf:type shext:NotValid ;
    mf:name      "aOrb_cOrd-abcd" ;
-   rdfs:comment "aOrb_cOrd -> abcd = FAIL" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cOrd.shex> ;
    shext:instance <abcd.ttl> ;
@@ -957,7 +957,7 @@
 	  
 <#aOrb_Orc-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb_Orc-ab" ;
-   rdfs:comment "aOrb_Orc -> ab = FAIL" ;
+   rdfs:comment "(a|b)|c -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orc.shex> ;
    shext:instance <ab.ttl> ;
@@ -967,7 +967,7 @@
 	  
 <#aOrb_Orcq-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb_Orcq-ab" ;
-   rdfs:comment "aOrb_Orcq -> ab = FAIL" ;
+   rdfs:comment "(a|b)|c? -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <ab.ttl> ;
@@ -977,7 +977,7 @@
 	  
 <#aOrb_Orcq-abc> rdf:type shext:NotValid ;
    mf:name      "aOrb_Orcq-abc" ;
-   rdfs:comment "aOrb_Orcq -> abc = FAIL" ;
+   rdfs:comment "(a|b)|c? -> abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <abc.ttl> ;
@@ -987,7 +987,7 @@
 	  
 <#aOrb_Orcq-abC> rdf:type shext:NotValid ;
    mf:name      "aOrb_Orcq-abC" ;
-   rdfs:comment "aOrb_Orcq -> abC = FAIL" ;
+   rdfs:comment "(a|b)|c? -> abC = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -997,7 +997,7 @@
    
 <#aOr_bOrc-bc> rdf:type shext:NotValid ;
    mf:name      "aOr_bOrc-bc" ;
-   rdfs:comment "aOr_bOrc -> bc = FAIL" ;
+   rdfs:comment "a|(b|c) -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1007,7 +1007,7 @@
    
 <#aqOr_bOrc-abc> rdf:type shext:NotValid ;
    mf:name      "aqOr_bOrc-abc" ;
-   rdfs:comment "aqOr_bOrc -> abc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1017,7 +1017,7 @@
 	  
 <#aqOr_bOrc-Abc> rdf:type shext:NotValid ;
    mf:name      "aqOr_bOrc-Abc" ;
-   rdfs:comment "aqOr_bOrc -> Abc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> Abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <notAbc.ttl> ;
@@ -1027,7 +1027,7 @@
 	  
 <#aqOr_bOrc-bc> rdf:type shext:NotValid ;
    mf:name      "aqOr_bOrc-bc" ;
-   rdfs:comment "aqOr_bOrc -> bc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1037,7 +1037,7 @@
 	  
 <#aOrb_or_cOrd-abcd> rdf:type shext:NotValid ;
    mf:name      "aOrb_or_cOrd-abcd" ;
-   rdfs:comment "aOrb_or_cOrd -> abcd = FAIL" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_or_cOrd.shex> ;
    shext:instance <abcd.ttl> ;
@@ -1047,7 +1047,7 @@
 	  
 <#aOrb_q-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb_q-ab" ;
-   rdfs:comment "aOrb_q -> ab = FAIL" ;
+   rdfs:comment "(a|b)? -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1057,7 +1057,7 @@
 	  
 <#aq-0> rdf:type shext:Valid ;
    mf:name      "aq-0" ;
-   rdfs:comment "aq -> 0 = ALL" ;
+   rdfs:comment "a? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <0.ttl> ;
@@ -1067,7 +1067,7 @@
 	  
 <#aq-a> rdf:type shext:Valid ;
    mf:name      "aq-a" ;
-   rdfs:comment "aq -> a = ALL" ;
+   rdfs:comment "a? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <a.ttl> ;
@@ -1097,7 +1097,7 @@
 	  
 <#aq-0> rdf:type shext:Valid ;
    mf:name      "aq-0" ;
-   rdfs:comment "aq -> 0 = ALL" ;
+   rdfs:comment "a? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <0.ttl> ;
@@ -1107,7 +1107,7 @@
 	  
 <#aq-a> rdf:type shext:Valid ;
    mf:name      "aq-a" ;
-   rdfs:comment "aq -> a = ALL" ;
+   rdfs:comment "a? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <a.ttl> ;
@@ -1117,7 +1117,7 @@
 	  
 <#aq-aa> rdf:type shext:NotValid ;
    mf:name      "aq-aa" ;
-   rdfs:comment "aq -> aa = FAIL" ;
+   rdfs:comment "a? -> aa = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <aa.ttl> ;
@@ -1127,7 +1127,7 @@
 
 <#ap-0> rdf:type shext:NotValid ;
    mf:name      "ap-0" ;
-   rdfs:comment "ap -> 0 = FAIL" ;
+   rdfs:comment "a+ -> 0 = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <0.ttl> ;
@@ -1137,7 +1137,7 @@
    
 <#ap-a> rdf:type shext:Valid ;
    mf:name      "ap-a" ;
-   rdfs:comment "ap -> a = ALL" ;
+   rdfs:comment "a+ -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <a.ttl> ;
@@ -1147,7 +1147,7 @@
 	  
 <#ap-aa> rdf:type shext:Valid ;
    mf:name      "ap-aa" ;
-   rdfs:comment "ap -> aa = ALL" ;
+   rdfs:comment "a+ -> aa = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <aa.ttl> ;
@@ -1157,7 +1157,7 @@
 	  
 <#ap-aaa> rdf:type shext:Valid ;
    mf:name      "ap-aaa" ;
-   rdfs:comment "ap -> aaa = ALL" ;
+   rdfs:comment "a+ -> aaa = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <aaa.ttl> ;
@@ -1167,7 +1167,7 @@
 	  
 <#as-0> rdf:type shext:Valid ;
    mf:name      "as-0" ;
-   rdfs:comment "as -> 0 = ALL" ;
+   rdfs:comment "a* -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <0.ttl> ;
@@ -1177,7 +1177,7 @@
 	  
 <#as-a> rdf:type shext:Valid ;
    mf:name      "as-a" ;
-   rdfs:comment "as -> a = ALL" ;
+   rdfs:comment "a* -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <a.ttl> ;
@@ -1187,7 +1187,7 @@
 	  
 <#as-aa> rdf:type shext:Valid ;
    mf:name      "as-aa" ;
-   rdfs:comment "as -> aa = ALL" ;
+   rdfs:comment "a* -> aa = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <aa.ttl> ;
@@ -1197,7 +1197,7 @@
 	  
 <#as-aaa> rdf:type shext:Valid ;
    mf:name      "as-aaa" ;
-   rdfs:comment "as -> aaa = ALL" ;
+   rdfs:comment "a* -> aaa = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <aaa.ttl> ;
@@ -1207,7 +1207,7 @@
 	  
 <#as-ab> rdf:type shext:NotValid ;
    mf:name      "as-ab" ;
-   rdfs:comment "as -> ab = FAIL" ;
+   rdfs:comment "a* -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <ab.ttl> ;
@@ -1217,7 +1217,7 @@
 
 <#ap_q-0> rdf:type shext:Valid ;
    mf:name      "ap_q-0" ;
-   rdfs:comment "ap_q -> 0 = ALL" ;
+   rdfs:comment "(a+)? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap_q.shex> ;
    shext:instance <0.ttl> ;
@@ -1227,7 +1227,7 @@
    
 <#ap_q-aa> rdf:type shext:Valid ;
    mf:name      "ap_q-aa" ;
-   rdfs:comment "ap_q -> aa = ALL" ;
+   rdfs:comment "(a+)? -> aa = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap_q.shex> ;
    shext:instance <aa.ttl> ;
@@ -1338,7 +1338,7 @@
    
 <#ab_c-abc> rdf:type shext:Valid ;
    mf:name      "ab_c-abc" ;
-   rdfs:comment "ab_c -> abc = ALL" ;
+   rdfs:comment "(ab)c -> abc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <abc.ttl> ;
@@ -1349,7 +1349,7 @@
    
 <#ab_c-a> rdf:type shext:NotValid ;
    mf:name      "ab_c-a" ;
-   rdfs:comment "ab_c -> a = FAIL" ;
+   rdfs:comment "(ab)c -> a = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <a.ttl> ;
@@ -1360,7 +1360,7 @@
    
 <#ab_c-b> rdf:type shext:NotValid ;
    mf:name      "ab_c-b" ;
-   rdfs:comment "ab_c -> b = FAIL" ;
+   rdfs:comment "(ab)c -> b = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <b.ttl> ;
@@ -1370,7 +1370,7 @@
    
 <#ab_c-c> rdf:type shext:NotValid ;
    mf:name      "ab_c-c" ;
-   rdfs:comment "ab_c -> c = FAIL" ;
+   rdfs:comment "(ab)c -> c = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <c.ttl> ;
@@ -1380,7 +1380,7 @@
    
 <#ab_c-ab> rdf:type shext:NotValid ;
    mf:name      "ab_c-ab" ;
-   rdfs:comment "ab_c -> ab = FAIL" ;
+   rdfs:comment "(ab)c -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <ab.ttl> ;
@@ -1390,7 +1390,7 @@
    
 <#ab_c-ac> rdf:type shext:NotValid ;
    mf:name      "ab_c-ac" ;
-   rdfs:comment "ab_c -> ac = FAIL" ;
+   rdfs:comment "(ab)c -> ac = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <ac.ttl> ;
@@ -1400,7 +1400,7 @@
    
 <#ab_c-bc> rdf:type shext:NotValid ;
    mf:name      "ab_c-bc" ;
-   rdfs:comment "ab_c -> bc = FAIL" ;
+   rdfs:comment "(ab)c -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_c.shex> ;
    shext:instance <bc.ttl> ;
@@ -1410,7 +1410,7 @@
    
 <#apbc-abc> rdf:type shext:Valid ;
    mf:name      "apbc-abc" ;
-   rdfs:comment "apbc -> abc = ALL" ;
+   rdfs:comment "a+bc -> abc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <apbc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1420,7 +1420,7 @@
    
 <#apbc-aabc> rdf:type shext:Valid ;
    mf:name      "apbc-aabc" ;
-   rdfs:comment "apbc -> aabc = ALL" ;
+   rdfs:comment "a+bc -> aabc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <apbc.shex> ;
    shext:instance <aabc.ttl> ;
@@ -1430,7 +1430,7 @@
    
 <#apbc-bc> rdf:type shext:NotValid ;
    mf:name      "apbc-bc" ;
-   rdfs:comment "apbc -> bc = FAIL" ;
+   rdfs:comment "a+bc -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <apbc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1440,7 +1440,7 @@
    
 <#aqbq-Ab> rdf:type shext:NotValid ;
    mf:name      "aqbq-Ab" ;
-   rdfs:comment "aqbq -> Ab = FAIL" ;
+   rdfs:comment "a?b? -> Ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq.shex> ;
    shext:instance <notAb.ttl> ;
@@ -1450,7 +1450,7 @@
    
 <#aOrbOrc-a> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-a" ;
-   rdfs:comment "aOrbOrc -> a = ALL" ;
+   rdfs:comment "a|b|c -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <a.ttl> ;
@@ -1460,7 +1460,7 @@
    
 <#aOrbOrc-b> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-b" ;
-   rdfs:comment "aOrbOrc -> b = ALL" ;
+   rdfs:comment "a|b|c -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <b.ttl> ;
@@ -1470,7 +1470,7 @@
    
 <#aOrbOrc-c> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-c" ;
-   rdfs:comment "aOrbOrc -> c = ALL" ;
+   rdfs:comment "a|b|c -> c = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <c.ttl> ;
@@ -1482,7 +1482,7 @@
 # Different semantics in Jesse's tests     
 <#aOrbOrc-ABc> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-ABc" ;
-   rdfs:comment "aOrbOrc -> ABc = Fail" ;
+   rdfs:comment "a|b|c -> ABc = Fail" ;
    shext:status shext:discussion ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <notAnotBc.ttl> ;
@@ -1493,7 +1493,7 @@
 # Different semantics in Jesse's tests     
 <#aOrbOrc-aBC> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-aBC" ;
-   rdfs:comment "aOrbOrc -> aBC = Fail" ;
+   rdfs:comment "a|b|c -> aBC = Fail" ;
    shext:status shext:discussion ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <anotBnotC.ttl> ;
@@ -1503,7 +1503,7 @@
    
 <#aOrbOrc-0> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-0" ;
-   rdfs:comment "aOrbOrc -> 0 = Fail" ;
+   rdfs:comment "a|b|c -> 0 = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <0.ttl> ;
@@ -1513,7 +1513,7 @@
    
 <#aOrbOrc-ab> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-ab" ;
-   rdfs:comment "aOrbOrc -> ab = Fail" ;
+   rdfs:comment "a|b|c -> ab = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <ab.ttl> ;
@@ -1523,7 +1523,7 @@
    
 <#aOrbOrc-ac> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-ac" ;
-   rdfs:comment "aOrbOrc -> ac = Fail" ;
+   rdfs:comment "a|b|c -> ac = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <ac.ttl> ;
@@ -1533,7 +1533,7 @@
    
 <#aOrbOrc-bc> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-bc" ;
-   rdfs:comment "aOrbOrc -> bc = Fail" ;
+   rdfs:comment "a|b|c -> bc = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1543,7 +1543,7 @@
    
 <#aOrbOrc-abc> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-abc" ;
-   rdfs:comment "aOrbOrc -> abc = Fail" ;
+   rdfs:comment "a|b|c -> abc = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1553,7 +1553,7 @@
    
 <#aOrbOrc-abC> rdf:type shext:NotValid ;
    mf:name      "aOrbOrc-abC" ;
-   rdfs:comment "aOrbOrc -> abC = Fail" ;
+   rdfs:comment "a|b|c -> abC = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -1563,7 +1563,7 @@
    
 <#aqb-b> rdf:type shext:Valid ;
    mf:name      "aqb-b" ;
-   rdfs:comment "aqb -> b = ALL" ;
+   rdfs:comment "a?b -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb.shex> ;
    shext:instance <b.ttl> ;
@@ -1573,7 +1573,7 @@
    
 <#aqb-ab> rdf:type shext:Valid ;
    mf:name      "aqb-ab" ;
-   rdfs:comment "aqb -> ab = ALL" ;
+   rdfs:comment "a?b -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb.shex> ;
    shext:instance <ab.ttl> ;
@@ -1583,7 +1583,7 @@
    
 <#aqb-a> rdf:type shext:NotValid ;
    mf:name      "aqb-a" ;
-   rdfs:comment "aqb -> a = FAIL" ;
+   rdfs:comment "a?b -> a = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb.shex> ;
    shext:instance <a.ttl> ;
@@ -1593,7 +1593,7 @@
    
 <#abq-a> rdf:type shext:Valid ;
    mf:name      "abq-a" ;
-   rdfs:comment "abq -> a = ALL" ;
+   rdfs:comment "ab? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <a.ttl> ;
@@ -1603,7 +1603,7 @@
    
 <#abq-ab> rdf:type shext:Valid ;
    mf:name      "abq-ab" ;
-   rdfs:comment "abq -> ab = ALL" ;
+   rdfs:comment "ab? -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <ab.ttl> ;
@@ -1613,7 +1613,7 @@
    
 <#abq-b> rdf:type shext:NotValid ;
    mf:name      "abq-b" ;
-   rdfs:comment "abq -> b = FAIL" ;
+   rdfs:comment "ab? -> b = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <b.ttl> ;
@@ -1623,7 +1623,7 @@
    
 <#ab_q-0> rdf:type shext:Valid ;
    mf:name      "ab_q-0" ;
-   rdfs:comment "ab_q -> 0 = ALL" ;
+   rdfs:comment "(ab)? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <0.ttl> ;
@@ -1633,7 +1633,7 @@
    
 <#ab_q-ab> rdf:type shext:Valid ;
    mf:name      "ab_q-ab" ;
-   rdfs:comment "ab_q -> ab = ALL" ;
+   rdfs:comment "(ab)? -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1643,7 +1643,7 @@
    
 <#ab_q-a> rdf:type shext:NotValid ;
    mf:name      "ab_q-a" ;
-   rdfs:comment "ab_q -> a = FAIL" ;
+   rdfs:comment "(ab)? -> a = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1653,7 +1653,7 @@
    
 <#ab_q-b> rdf:type shext:NotValid ;
    mf:name      "ab_q-b" ;
-   rdfs:comment "ab_q -> b = FAIL" ;
+   rdfs:comment "(ab)? -> b = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1663,7 +1663,7 @@
    
 <#ap_b_c-abc> rdf:type shext:Valid ;
    mf:name      "ap_b_c-abc" ;
-   rdfs:comment "ap_b_c -> abc = ALL" ;
+   rdfs:comment "(a+)bc -> abc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap_b_c.shex> ;
    shext:instance <abc.ttl> ;
@@ -1673,7 +1673,7 @@
    
 <#ap_b_c-aabc> rdf:type shext:Valid ;
    mf:name      "ap_b_c-aabc" ;
-   rdfs:comment "ap_b_c -> aabc = ALL" ;
+   rdfs:comment "a+bc -> aabc = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ap_b_c.shex> ;
    shext:instance <aabc.ttl> ;
@@ -1683,7 +1683,7 @@
    
 <#ap_b_c-bc> rdf:type shext:NotValid ;
    mf:name      "ap_b_c-bc" ;
-   rdfs:comment "ap_b_c -> bc = FAIL" ;
+   rdfs:comment "a+bc -> bc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <ap_b_c.shex> ;
    shext:instance <bc.ttl> ;
@@ -1693,7 +1693,7 @@
    
 <#aqbq_q-a> rdf:type shext:Valid ;
    mf:name      "aqbq_q-a" ;
-   rdfs:comment "aqbq_q -> a = ALL" ;
+   rdfs:comment "(a?b?)? -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1703,7 +1703,7 @@
    
 <#aqbq_q-b> rdf:type shext:Valid ;
    mf:name      "aqbq_q-b" ;
-   rdfs:comment "aqbq_q -> b = ALL" ;
+   rdfs:comment "(a?b?)? -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1713,7 +1713,7 @@
    
 <#aqbq_q-ab> rdf:type shext:Valid ;
    mf:name      "aqbq_q-ab" ;
-   rdfs:comment "aqbq_q -> ab = ALL" ;
+   rdfs:comment "(a?b?)? -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1723,7 +1723,7 @@
    
 <#aqbq_q-0> rdf:type shext:Valid ;
    mf:name      "aqbq_q-0" ;
-   rdfs:comment "aqbq_q -> 0 = ALL" ;
+   rdfs:comment "(a?b?)? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq_q.shex> ;
    shext:instance <0.ttl> ;
@@ -1733,7 +1733,7 @@
    
 <#aqb_q-b> rdf:type shext:Valid ;
    mf:name      "aqb_q-b" ;
-   rdfs:comment "aqb_q -> b = ALL" ;
+   rdfs:comment "(a?b)? -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1743,7 +1743,7 @@
    
 <#aqb_q-ab> rdf:type shext:Valid ;
    mf:name      "aqb_q-ab" ;
-   rdfs:comment "aqb_q -> ab = ALL" ;
+   rdfs:comment "(a?b)? -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1753,7 +1753,7 @@
    
 <#aqb_q-a> rdf:type shext:NotValid ;
    mf:name      "aqb_q-a" ;
-   rdfs:comment "aqb_q -> a = FAIL" ;
+   rdfs:comment "(a?b)? -> a = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <aqb_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1763,7 +1763,7 @@
    
 <#abq_q-0> rdf:type shext:Valid ;
    mf:name      "abq_q-0" ;
-   rdfs:comment "abq_q -> 0 = ALL" ;
+   rdfs:comment "(ab?)q -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq_q.shex> ;
    shext:instance <0.ttl> ;
@@ -1773,7 +1773,7 @@
    
 <#abq_q-a> rdf:type shext:Valid ;
    mf:name      "abq_q-a" ;
-   rdfs:comment "abq_q -> a = ALL" ;
+   rdfs:comment "(ab?)q -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1783,7 +1783,7 @@
    
 <#abq_q-ab> rdf:type shext:Valid ;
    mf:name      "abq_q-ab" ;
-   rdfs:comment "abq_q -> ab = ALL" ;
+   rdfs:comment "(ab?)q -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abq_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1793,7 +1793,7 @@
    
 <#abq_q-b> rdf:type shext:NotValid ;
    mf:name      "abq_q-b" ;
-   rdfs:comment "abq_q -> b = FAIL" ;
+   rdfs:comment "(ab?)q -> b = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <abq_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1803,7 +1803,7 @@
    
 <#aOr_b-a> rdf:type shext:Valid ;
    mf:name      "aOr_b-a" ;
-   rdfs:comment "aOr_b -> a = ALL" ;
+   rdfs:comment "a|(b) -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <a.ttl> ;
@@ -1813,7 +1813,7 @@
    
 <#aOr_b-b> rdf:type shext:Valid ;
    mf:name      "aOr_b-b" ;
-   rdfs:comment "aOr_b -> b = ALL" ;
+   rdfs:comment "a|(b) -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <b.ttl> ;
@@ -1823,7 +1823,7 @@
    
 <#aOr_b-0> rdf:type shext:NotValid ;
    mf:name      "aOr_b-0" ;
-   rdfs:comment "aOr_b -> 0 = Fail" ;
+   rdfs:comment "a|(b) -> 0 = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <0.ttl> ;
@@ -1833,7 +1833,7 @@
    
 <#aOr_b-ab> rdf:type shext:NotValid ;
    mf:name      "aOr_b-ab" ;
-   rdfs:comment "aOr_b -> ab = Fail" ;
+   rdfs:comment "a|(b) -> ab = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <ab.ttl> ;
@@ -1843,7 +1843,7 @@
    
 <#aOrb-a> rdf:type shext:Valid ;
    mf:name      "aOrb-a" ;
-   rdfs:comment "aOrb -> a = ALL" ;
+   rdfs:comment "a|b -> a = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <a.ttl> ;
@@ -1853,7 +1853,7 @@
    
 <#aOrb-b> rdf:type shext:Valid ;
    mf:name      "aOrb-b" ;
-   rdfs:comment "aOrb -> b = ALL" ;
+   rdfs:comment "a|b -> b = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <a.ttl> ;
@@ -1863,7 +1863,7 @@
    
 <#aOrb-0> rdf:type shext:NotValid ;
    mf:name      "aOrb-0" ;
-   rdfs:comment "aOrb -> 0 = Fail" ;
+   rdfs:comment "a|b -> 0 = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
@@ -1873,7 +1873,7 @@
 
 <#aOrb-ab> rdf:type shext:NotValid ;
    mf:name      "aOrb-ab" ;
-   rdfs:comment "aOrb -> ab = Fail" ;
+   rdfs:comment "a|b -> ab = Fail" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <ab.ttl> ;
@@ -1883,7 +1883,7 @@
    
 <#a_bOrc-ab> rdf:type shext:Valid ;
    mf:name      "a_bOrc-ab" ;
-   rdfs:comment "a_bOrc -> ab = ALL" ;
+   rdfs:comment "a(b|c) -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <ab.ttl> ;
@@ -1893,7 +1893,7 @@
    
 <#a_bOrc-ac> rdf:type shext:Valid ;
    mf:name      "a_bOrc-ac" ;
-   rdfs:comment "a_bOrc -> ac = ALL" ;
+   rdfs:comment "a(b|c) -> ac = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <ac.ttl> ;
@@ -1903,7 +1903,7 @@
    
 <#a_bOrc-a> rdf:type shext:NotValid ;
    mf:name      "a_bOrc-a" ;
-   rdfs:comment "a_bOrc -> a = FAIL" ;
+   rdfs:comment "a(b|c) -> a = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <a.ttl> ;
@@ -1913,7 +1913,7 @@
    
 <#a_bOrc-abc> rdf:type shext:NotValid ;
    mf:name      "a_bOrc-abc" ;
-   rdfs:comment "a_bOrc -> abc = FAIL" ;
+   rdfs:comment "a(b|c) -> abc = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1924,7 +1924,7 @@
    
 <#abqc_q-0> rdf:type shext:Valid ;
    mf:name      "abqc_q-0" ;
-   rdfs:comment "abqc_q -> 0= ALL" ;
+   rdfs:comment "(ab?c)? -> 0= ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <0.ttl> ;
@@ -1934,7 +1934,7 @@
    
 <#abqc_q-c> rdf:type shext:Valid ;
    mf:name      "abqc_q-c" ;
-   rdfs:comment "abqc_q -> c= ALL" ;
+   rdfs:comment "(ab?c)? -> c= ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <c.ttl> ;
@@ -1944,7 +1944,7 @@
    
 <#abqc_q-abc> rdf:type shext:Valid ;
    mf:name      "abqc_q-abc" ;
-   rdfs:comment "abqc_q -> abc= ALL" ;
+   rdfs:comment "(ab?c)? -> abc= ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <abc.ttl> ;
@@ -1954,7 +1954,7 @@
    
 <#abqc_q-b> rdf:type shext:NotValid ;
    mf:name      "abqc_q-b" ;
-   rdfs:comment "abqc_q -> b = FAIL" ;
+   rdfs:comment "(ab?c)? -> b = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1964,7 +1964,7 @@
    
 <#abqc_q-ab> rdf:type shext:NotValid ;
    mf:name      "abqc_q-ab" ;
-   rdfs:comment "abqc_q -> ab = FAIL" ;
+   rdfs:comment "(ab?c)? -> ab = FAIL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1974,7 +1974,7 @@
    
 <#abqc_q-0> rdf:type shext:Valid ;
    mf:name      "abqc_q-0" ;
-   rdfs:comment "abqc_q -> 0 = ALL" ;
+   rdfs:comment "(ab?c)? -> 0 = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <0.ttl> ;
