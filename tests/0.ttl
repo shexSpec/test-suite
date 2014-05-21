@@ -1,0 +1,5 @@
+prefix : <http://example.org/>
+
+# :item is a node with 0 properties
+:xxx :ppp :item 
+	  .

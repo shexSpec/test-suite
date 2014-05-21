@@ -1,0 +1,5 @@
+prefix : <http://example.org/>
+
+:item :a 1 , 2 ;
+      :b 1 ;
+	  :c 1 .

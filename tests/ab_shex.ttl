@@ -1,0 +1,34 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rs:    <http://open-services.net/ns/core#> .
+@prefix se:    <http://www.w3.org/2013/ShEx/Definition#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix ex: <http://example.org/> .
+
+#ab
+
+ex:Start a se:StartDef;
+  se:items [ a se:StartDefItem;
+    rs:occurs rs:Exactly-one;
+    se:shape ex:USER;
+  ].
+
+ex:USER a rs:ResourceShape;
+rs:occurs rs:Zero-or-one;
+se:subGroup [ a se:AndRuleGroup;
+  rs:occurs rs:Exactly-one;
+  rs:property [ a se:ValueProperty;
+    rs:occurs rs:Exactly-one;
+    rs:name "a";
+    rs:propDefinition ex:a;
+    rs:valueType xsd:integer;
+  ];
+  rs:property [ a se:ValueProperty;
+    rs:occurs rs:Exactly-one;
+    rs:name "b";
+    rs:propDefinition ex:b;
+    rs:valueType xsd:integer;
+  ];
+];
+.
