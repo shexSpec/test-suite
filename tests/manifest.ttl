@@ -2203,4 +2203,118 @@
    shext:instance <ab.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
-   .                           
+   .  
+
+<#neg_ab_ab> rdf:type shext:NotValid ;
+   mf:name      "neg_ab_ab" ;
+   rdfs:comment "neg_ab_ab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_ab_b> rdf:type shext:Valid ;
+   mf:name      "neg_ab_b" ;
+   rdfs:comment "neg_ab_b" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#neg_ab_a> rdf:type shext:Valid ;
+   mf:name      "neg_ab_a" ;
+   rdfs:comment "neg_ab_a" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_aab_ab> rdf:type shext:Valid ;
+   mf:name      "neg_aab_ab" ;
+   rdfs:comment "neg_aab_ab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_aab.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_aab_aab> rdf:type shext:NotValid ;
+   mf:name      "neg_aab_aab" ;
+   rdfs:comment "neg_aab_aab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_aab.shex> ;
+   shext:instance <aab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#rec_a> rdf:type shext:Valid ;
+   mf:name      "rec_a" ;
+   rdfs:comment "rec_a" ;
+   shext:status mf:proposed ;
+   shext:schema   <rec_a.shex> ;
+   shext:instance <self.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#recursion_skos> rdf:type shext:Valid ;
+   mf:name      "recursion_skos" ;
+   rdfs:comment "recursion_skos" ;
+   shext:status mf:proposed ;
+   shext:schema   <skos.shex> ;
+   shext:instance <skos.ttl> ;
+   shext:iri    ex:MyConcept ; 
+   shext:shape  ex:SkosConceptShape
+   .  
+   
+# ShEx non-standard extensions
+   
+<#lang_es_es> rdf:type shext:Valid ;
+   mf:name      "lang_es_es" ;
+   rdfs:comment "lang_es_es" ;
+   shext:status mf:proposed ;
+   shext:schema   <lang_es.shex> ;
+   shext:instance <es.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#lang_es_en> rdf:type shext:NotValid ;
+   mf:name      "lang_es_en" ;
+   rdfs:comment "lang_es_en" ;
+   shext:status mf:proposed ;
+   shext:schema   <lang_es.shex> ;
+   shext:instance <en.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#regex_a> rdf:type shext:Valid ;
+   mf:name      "regex_a" ;
+   rdfs:comment "regex_a" ;
+   shext:status mf:proposedExtension ;
+   shext:schema   <regex_a.shex> ;
+   shext:instance <a_str.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#regex_aa> rdf:type shext:Valid ;
+   mf:name      "regex_aa" ;
+   rdfs:comment "regex_aa" ;
+   shext:status mf:proposedExtension ;
+   shext:schema   <regex_a.shex> ;
+   shext:instance <aa_str.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   

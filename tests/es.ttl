@@ -1,2 +1,3 @@
 prefix : <http://example.org/>
 
+:item :a "Hola"@es .

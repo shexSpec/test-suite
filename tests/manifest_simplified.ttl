@@ -13,13 +13,13 @@
 	<#user2>
     ) .
 
-<#user2> rdf:type shext:Valid ;
-   mf:name      "user2" ;
-   rdfs:comment "User and issue shape simple" ;
+<#star0> rdf:type shext:Valid ;
+   mf:name      "star0" ;
+   rdfs:comment "star 0" ;
    shext:status mf:proposed ;
-   shext:schema   <user1.shex> ;
-   shext:instance <user1.ttl> ;
-   shext:iri    ex:issue1 ; 
-   shext:shape  ex:IssueShape
+   shext:schema   <star.shex> ;
+   shext:instance <star0.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
    .
    

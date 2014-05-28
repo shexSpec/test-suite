@@ -20,7 +20,12 @@
 	<#star0> <#star1> <#star2> <#star3>
 	<#plus0no> <#plus1> <#plus2> <#plus3>
 	<#country-observations-valid>
-	<#user1>
+	<#user1> <#user2>
+	<#nonIRI1> <#nonIRI2>
+	<#iri> <#bNode>
+	<#nonLiteral1> <#nonLiteral2>
+	<#nonBNode1> <#nonBNode2> <#nonBNode3>
+	<#ab-ab> <#ab-a>
     ) .
 
 <#a-string-syntax> rdf:type shext:PositiveSyntax ;
@@ -390,11 +395,11 @@
    shext:shape  ex:country
    .
 
-<#user1> rdf:type shext:NonValid ;
+<#user1> rdf:type shext:Valid ;
    mf:name      "user1" ;
    rdfs:comment "User and issue shape simple" ;
    shext:status mf:proposed ;
-   shext:schema   <userff1.shex> ;
+   shext:schema   <user1.shex> ;
    shext:instance <user1.ttl> ;
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
@@ -404,9 +409,1903 @@
    mf:name      "user2" ;
    rdfs:comment "User and issue shape simple" ;
    shext:status mf:proposed ;
-   shext:schema   <user1.shex> ;
-   shext:instance <user1.ttl> ;
+   shext:schema   <user2.shex> ;
+   shext:instance <user2.ttl> ;
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
    .
+   
+<#iri> rdf:type shext:Valid ;
+   mf:name      "iri1" ;
+   rdfs:comment "A simple IRI" ;
+   shext:status mf:proposed ;
+   shext:schema   <iri.shex> ;
+   shext:instance <iri.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .   
+   
+<#nonIRI1> rdf:type shext:Valid ;
+   mf:name      "nonIRI1" ;
+   rdfs:comment "A literal is non IRI" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonIRI.shex> ;
+   shext:instance <nonIRI.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .      
+   
+<#nonIRI2> rdf:type shext:Valid ;
+   mf:name      "nonIRI2" ;
+   rdfs:comment "A bnode is not an IRI" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonIRI.shex> ;
+   shext:instance <nonIRI.ttl> ;
+   shext:iri    ex:y ; 
+   shext:shape  ex:a
+   .         
+   
+<#nonLiteral1> rdf:type shext:Valid ;
+   mf:name      "nonLiteral1" ;
+   rdfs:comment "A iri is nonLiteral" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonLiteral.shex> ;
+   shext:instance <nonLiteral.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .      
+   
+<#nonLiteral2> rdf:type shext:Valid ;
+   mf:name      "nonIRI2" ;
+   rdfs:comment "A bnode is nonLiteral" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonLiteral.shex> ;
+   shext:instance <nonLiteral.ttl> ;
+   shext:iri    ex:y ; 
+   shext:shape  ex:a
+   .            
+   
+<#bNode> rdf:type shext:Valid ;
+   mf:name      "bNode" ;
+   rdfs:comment "A bnode is a BNode" ;
+   shext:status mf:proposed ;
+   shext:schema   <bNode.shex> ;
+   shext:instance <bNode.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .               
+   
+<#nonBNode1> rdf:type shext:Valid ;
+   mf:name      "nonBNode1" ;
+   rdfs:comment "A iri is nonLiteral" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonLiteral.shex> ;
+   shext:instance <nonLiteral.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .      
+   
+<#nonBNode2> rdf:type shext:Valid ;
+   mf:name      "nonBNode2" ;
+   rdfs:comment "A literal is nonBNode" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonBNode.shex> ;
+   shext:instance <nonBNode.ttl> ;
+   shext:iri    ex:y ; 
+   shext:shape  ex:a
+   .            
+   
+<#nonBNode3> rdf:type shext:NotValid ;
+   mf:name      "nonBNode3" ;
+   rdfs:comment "A bNode is not a nonBNode" ;
+   shext:status mf:proposed ;
+   shext:schema   <nonBNode.shex> ;
+   shext:instance <nonBNode.ttl> ;
+   shext:iri    ex:z ; 
+   .       
+
+<#ab-ab> rdf:type shext:Valid ;
+   mf:name      "ab-ab" ;
+   rdfs:comment "ab->ab=ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .            
+
+<#ab-0> rdf:type shext:NotValid ;
+   mf:name      "ab-0" ;
+   rdfs:comment "ab -> 0 = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#ab-a> rdf:type shext:NotValid ;
+   mf:name      "ab-a" ;
+   rdfs:comment "ab -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#ab-b> rdf:type shext:NotValid ;
+   mf:name      "ab-b" ;
+   rdfs:comment "ab -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#ab-B> rdf:type shext:NotValid ;
+   mf:name      "ab-B" ;
+   rdfs:comment "ab -> B = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#aqbq-a> rdf:type shext:Valid ;
+   mf:name      "aqbq-a" ;
+   rdfs:comment "a?b?->a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .            
+   
+<#aqbq-b> rdf:type shext:Valid ;
+   mf:name      "aqbq-b" ;
+   rdfs:comment "a?b?->b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .            
+   
+<#aqbq-B> rdf:type shext:NotValid ;
+   mf:name      "aqbq-B" ;
+   rdfs:comment "a?b?->B = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#aqbq-aB> rdf:type shext:NotValid ;
+   mf:name      "aqbq-aB" ;
+   rdfs:comment "a?b?->aB = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq.shex> ;
+   shext:instance <anotB.ttl> ;
+   shext:iri    ex:item ; 
+   .            
+   
+<#aqb-0> rdf:type shext:NotValid ;
+   mf:name      "aqb-0" ;
+   rdfs:comment "a?b -> 0 = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+
+<#aqb-B> rdf:type shext:NotValid ;
+   mf:name      "aqb-B" ;
+   rdfs:comment "a?b -> B = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#abq-0> rdf:type shext:NotValid ;
+   mf:name      "abq-0" ;
+   rdfs:comment "ab? -> 0 = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#ab-AB> rdf:type shext:NotValid ;
+   mf:name      "ab-AB" ;
+   rdfs:comment "ab -> AB = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <notAnotB.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#ab-Ab> rdf:type shext:NotValid ;
+   mf:name      "ab-Ab" ;
+   rdfs:comment "ab -> Ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <notAb.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#ab-A> rdf:type shext:NotValid ;
+   mf:name      "ab-A" ;
+   rdfs:comment "ab -> A = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <notA.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+
+<#abq-a> rdf:type shext:Valid ;
+   mf:name      "abq-a" ;
+   rdfs:comment "ab? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abq-A> rdf:type shext:NotValid ;
+   mf:name      "abq-A" ;
+   rdfs:comment "ab? -> A = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <notA.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#aOrb-a> rdf:type shext:Valid ;
+   mf:name      "aOrb-a" ;
+   rdfs:comment "a|b -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+# This test depends on the Open/Closed shapes semantics
+<#aOrb-Ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb-Ab" ;
+   rdfs:comment "a|b -> Ab = FAIL" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <notAb.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+# This test depends on the Open/Closed shapes semantics
+<#aOrb-aB> rdf:type shext:NotValid ;
+   mf:name      "aOrb-aB" ;
+   rdfs:comment "a|b -> aB = FAIL" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <anotB.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb-0> rdf:type shext:NotValid ;
+   mf:name      "aOrb-0" ;
+   rdfs:comment "a|b -> 0 = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+
+<#aOrb-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb-ab" ;
+   rdfs:comment "a|b -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#aOrb-A> rdf:type shext:NotValid ;
+   mf:name      "aOrb-A" ;
+   rdfs:comment "aOrb -> A = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <notA.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#aOrb-B> rdf:type shext:NotValid ;
+   mf:name      "aOrb-B" ;
+   rdfs:comment "a|b -> B = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+<#aOrb-AB> rdf:type shext:NotValid ;
+   mf:name      "aOrb-AB" ;
+   rdfs:comment "a|b -> AB = FAIL" ;
+   shext:status shext:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <notAnotB.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+   
+# Different semantics in Jesse's tests   
+<#aqOrbq-0> rdf:type shext:Valid ;
+   mf:name      "aqOrbq-0" ;
+   rdfs:comment "(a?|b)? -> 0 = ALL" ;
+   shext:status shext:discussion ;
+   shext:schema   <aqOrbq.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item ; 
+   .  
+   
+<#aqOrbq-a> rdf:type shext:Valid ;
+   mf:name      "aqOrbq-a" ;
+   rdfs:comment "(a?|b)? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOrbq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item ; 
+   .  
+   
+<#aqOrbq-b> rdf:type shext:Valid ;
+   mf:name      "aqOrbq-b" ;
+   rdfs:comment "a?|b? -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOrbq.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item ; 
+   .  
+
+<#aqOrbq-ab> rdf:type shext:NotValid ;
+   mf:name      "aqOrbq-ab" ;
+   rdfs:comment "a?|b? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOrbq.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item ; 
+   .  
+   
+# Different semantics in Jesse's tests
+<#_aOrb_q-0> rdf:type shext:Valid ;
+   mf:name      "_aOrb_q-0" ;
+   rdfs:comment "(a|b)? -> 0 = ALL" ;
+   shext:status shext:discussion ;
+   shext:schema   <_aOrb_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item ; 
+   .  
+
+# Different semantics in Jesse's tests
+# Depends on Open/Close semantics
+<#_aOrb_q-A> rdf:type shext:NotValid ;
+   mf:name      "_aOrb_q-A" ;
+   rdfs:comment "(a|b)? -> A = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <_aOrb_q.shex> ;
+   shext:instance <notA.ttl> ;
+   shext:iri    ex:item ; 
+   .  
+
+# Different semantics in Jesse's tests
+# Depends on Open/Close semantics
+<#aqOrb-0> rdf:type shext:Valid ;
+   mf:name      "aqOrb-0" ;
+   rdfs:comment "a?|b -> 0 = ALL" ;
+   shext:status shext:discussion ;
+   shext:schema   <aqOrb.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+# Different semantics in Jesse's tests
+# Depends on Open/Close semantics
+<#aqOrb-B> rdf:type shext:NotValid ;
+   mf:name      "aqOrb-B" ;
+   rdfs:comment "a?|b -> B = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <aqOrb.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_c-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb_c-ab" ;
+   rdfs:comment "(a|b)c -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_c.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb_cq-ab" ;
+   rdfs:comment "(a|b)c? -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-abc> rdf:type shext:NotValid ;
+   mf:name      "aOrb_cq-abc" ;
+   rdfs:comment "(a|b)c? -> abc = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-abC> rdf:type shext:NotValid ;
+   mf:name      "aOrb_cq-abC" ;
+   rdfs:comment "(a|b)c? -> abC = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <abnotC.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-ac> rdf:type shext:Valid ;
+   mf:name      "aOrb_cq-ac" ;
+   rdfs:comment "(a|b)c? -> ac = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-bc> rdf:type shext:Valid ;
+   mf:name      "aOrb_cq-bc" ;
+   rdfs:comment "(a|b)c? -> bc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-a> rdf:type shext:Valid ;
+   mf:name      "aOrb_cq-a" ;
+   rdfs:comment "(a|b)c? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrb_cq-b> rdf:type shext:Valid ;
+   mf:name      "aOrb_cq-b" ;
+   rdfs:comment "(a|b)c? -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cq.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#a_bOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "a_bOrc-bc" ;
+   rdfs:comment "a(b|c) -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a_bOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+      
+<#aq_bOrc-abc> rdf:type shext:NotValid ;
+   mf:name      "aq_bOrc-abc" ;
+   rdfs:comment "a?(b|c) -> abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq_bOrc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq_bOrc-Abc> rdf:type shext:NotValid ;
+   mf:name      "aq_bOrc-Abc" ;
+   rdfs:comment "a?(b|c) -> Abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq_bOrc.shex> ;
+   shext:instance <notAbc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq_bOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "aq_bOrc-bc" ;
+   rdfs:comment "a?(b|c) -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq_bOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_cOrb-abcd> rdf:type shext:NotValid ;
+   mf:name      "aOrb_cOrd-abcd" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_cOrd.shex> ;
+   shext:instance <abcd.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_Orc-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb_Orc-ab" ;
+   rdfs:comment "(a|b)|c -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_Orc.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_Orcq-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb_Orcq-ab" ;
+   rdfs:comment "(a|b)|c? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_Orcq.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_Orcq-abc> rdf:type shext:NotValid ;
+   mf:name      "aOrb_Orcq-abc" ;
+   rdfs:comment "(a|b)|c? -> abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_Orcq.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_Orcq-abC> rdf:type shext:NotValid ;
+   mf:name      "aOrb_Orcq-abC" ;
+   rdfs:comment "(a|b)|c? -> abC = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_Orcq.shex> ;
+   shext:instance <abnotC.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOr_bOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "aOr_bOrc-bc" ;
+   rdfs:comment "a|(b|c) -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOr_bOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqOr_bOrc-abc> rdf:type shext:NotValid ;
+   mf:name      "aqOr_bOrc-abc" ;
+   rdfs:comment "a?|(b|c) -> abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOr_bOrc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aqOr_bOrc-Abc> rdf:type shext:NotValid ;
+   mf:name      "aqOr_bOrc-Abc" ;
+   rdfs:comment "a?|(b|c) -> Abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOr_bOrc.shex> ;
+   shext:instance <notAbc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aqOr_bOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "aqOr_bOrc-bc" ;
+   rdfs:comment "a?|(b|c) -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqOr_bOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_or_cOrd-abcd> rdf:type shext:NotValid ;
+   mf:name      "aOrb_or_cOrd-abcd" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_or_cOrd.shex> ;
+   shext:instance <abcd.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aOrb_q-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb_q-ab" ;
+   rdfs:comment "(a|b)? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq-0> rdf:type shext:Valid ;
+   mf:name      "aq-0" ;
+   rdfs:comment "a? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq-a> rdf:type shext:Valid ;
+   mf:name      "aq-a" ;
+   rdfs:comment "a? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#a-a> rdf:type shext:Valid ;
+   mf:name      "a-a" ;
+   rdfs:comment "a -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#a-b> rdf:type shext:NotValid ;
+   mf:name      "a-b" ;
+   rdfs:comment "a -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq-0> rdf:type shext:Valid ;
+   mf:name      "aq-0" ;
+   rdfs:comment "a? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq-a> rdf:type shext:Valid ;
+   mf:name      "aq-a" ;
+   rdfs:comment "a? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#aq-aa> rdf:type shext:NotValid ;
+   mf:name      "aq-aa" ;
+   rdfs:comment "a? -> aa = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aq.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#ap-0> rdf:type shext:NotValid ;
+   mf:name      "ap-0" ;
+   rdfs:comment "a+ -> 0 = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  	  
+   
+<#ap-a> rdf:type shext:Valid ;
+   mf:name      "ap-a" ;
+   rdfs:comment "a+ -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#ap-aa> rdf:type shext:Valid ;
+   mf:name      "ap-aa" ;
+   rdfs:comment "a+ -> aa = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#ap-aaa> rdf:type shext:Valid ;
+   mf:name      "ap-aaa" ;
+   rdfs:comment "a+ -> aaa = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap.shex> ;
+   shext:instance <aaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#as-0> rdf:type shext:Valid ;
+   mf:name      "as-0" ;
+   rdfs:comment "a* -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <as.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#as-a> rdf:type shext:Valid ;
+   mf:name      "as-a" ;
+   rdfs:comment "a* -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <as.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#as-aa> rdf:type shext:Valid ;
+   mf:name      "as-aa" ;
+   rdfs:comment "a* -> aa = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <as.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#as-aaa> rdf:type shext:Valid ;
+   mf:name      "as-aaa" ;
+   rdfs:comment "a* -> aaa = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <as.shex> ;
+   shext:instance <aaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+	  
+<#as-ab> rdf:type shext:NotValid ;
+   mf:name      "as-ab" ;
+   rdfs:comment "a* -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <as.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#ap_q-0> rdf:type shext:Valid ;
+   mf:name      "ap_q-0" ;
+   rdfs:comment "(a+)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ap_q-aa> rdf:type shext:Valid ;
+   mf:name      "ap_q-aa" ;
+   rdfs:comment "(a+)? -> aa = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap_q.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab-bc> rdf:type shext:NotValid ;
+   mf:name      "ab-bc" ;
+   rdfs:comment "ab -> bc = NotValid" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab-ac> rdf:type shext:NotValid ;
+   mf:name      "ab-ac" ;
+   rdfs:comment "ab -> ac = NotValid" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#ab-aB> rdf:type shext:NotValid ;
+   mf:name      "ab-aB" ;
+   rdfs:comment "ab -> aB = NotValid" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <anotB.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-abc> rdf:type shext:Valid ;
+   mf:name      "abc-abc" ;
+   rdfs:comment "abc -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-a> rdf:type shext:NotValid ;
+   mf:name      "abc-a" ;
+   rdfs:comment "abc -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-b> rdf:type shext:NotValid ;
+   mf:name      "abc-b" ;
+   rdfs:comment "abc -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#abc-c> rdf:type shext:NotValid ;
+   mf:name      "abc-c" ;
+   rdfs:comment "abc -> c = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-ab> rdf:type shext:NotValid ;
+   mf:name      "abc-ab" ;
+   rdfs:comment "abc -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-ac> rdf:type shext:NotValid ;
+   mf:name      "abc-ac" ;
+   rdfs:comment "abc -> ac = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abc-bc> rdf:type shext:NotValid ;
+   mf:name      "abc-bc" ;
+   rdfs:comment "abc -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_c-abc> rdf:type shext:Valid ;
+   mf:name      "ab_c-abc" ;
+   rdfs:comment "(ab)c -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#ab_c-a> rdf:type shext:NotValid ;
+   mf:name      "ab_c-a" ;
+   rdfs:comment "(ab)c -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#ab_c-b> rdf:type shext:NotValid ;
+   mf:name      "ab_c-b" ;
+   rdfs:comment "(ab)c -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_c-c> rdf:type shext:NotValid ;
+   mf:name      "ab_c-c" ;
+   rdfs:comment "(ab)c -> c = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_c-ab> rdf:type shext:NotValid ;
+   mf:name      "ab_c-ab" ;
+   rdfs:comment "(ab)c -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_c-ac> rdf:type shext:NotValid ;
+   mf:name      "ab_c-ac" ;
+   rdfs:comment "(ab)c -> ac = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_c-bc> rdf:type shext:NotValid ;
+   mf:name      "ab_c-bc" ;
+   rdfs:comment "(ab)c -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_c.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#apbc-abc> rdf:type shext:Valid ;
+   mf:name      "apbc-abc" ;
+   rdfs:comment "a+bc -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <apbc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#apbc-aabc> rdf:type shext:Valid ;
+   mf:name      "apbc-aabc" ;
+   rdfs:comment "a+bc -> aabc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <apbc.shex> ;
+   shext:instance <aabc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#apbc-bc> rdf:type shext:NotValid ;
+   mf:name      "apbc-bc" ;
+   rdfs:comment "a+bc -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <apbc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqbq-Ab> rdf:type shext:NotValid ;
+   mf:name      "aqbq-Ab" ;
+   rdfs:comment "a?b? -> Ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq.shex> ;
+   shext:instance <notAb.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-a> rdf:type shext:Valid ;
+   mf:name      "aOrbOrc-a" ;
+   rdfs:comment "a|b|c -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-b> rdf:type shext:Valid ;
+   mf:name      "aOrbOrc-b" ;
+   rdfs:comment "a|b|c -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-c> rdf:type shext:Valid ;
+   mf:name      "aOrbOrc-c" ;
+   rdfs:comment "a|b|c -> c = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+  
+# Different semantics in Jesse's tests     
+<#aOrbOrc-ABc> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-ABc" ;
+   rdfs:comment "a|b|c -> ABc = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <notAnotBc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+# Different semantics in Jesse's tests     
+<#aOrbOrc-aBC> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-aBC" ;
+   rdfs:comment "a|b|c -> aBC = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <anotBnotC.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-0> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-0" ;
+   rdfs:comment "a|b|c -> 0 = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-ab" ;
+   rdfs:comment "a|b|c -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-ac> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-ac" ;
+   rdfs:comment "a|b|c -> ac = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-bc" ;
+   rdfs:comment "a|b|c -> bc = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-abc> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-abc" ;
+   rdfs:comment "a|b|c -> abc = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aOrbOrc-abC> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-abC" ;
+   rdfs:comment "a|b|c -> abC = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <abnotC.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqb-b> rdf:type shext:Valid ;
+   mf:name      "aqb-b" ;
+   rdfs:comment "a?b -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqb-ab> rdf:type shext:Valid ;
+   mf:name      "aqb-ab" ;
+   rdfs:comment "a?b -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqb-a> rdf:type shext:NotValid ;
+   mf:name      "aqb-a" ;
+   rdfs:comment "a?b -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abq-a> rdf:type shext:Valid ;
+   mf:name      "abq-a" ;
+   rdfs:comment "ab? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abq-ab> rdf:type shext:Valid ;
+   mf:name      "abq-ab" ;
+   rdfs:comment "ab? -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#abq-b> rdf:type shext:NotValid ;
+   mf:name      "abq-b" ;
+   rdfs:comment "ab? -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_q-0> rdf:type shext:Valid ;
+   mf:name      "ab_q-0" ;
+   rdfs:comment "(ab)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_q-ab> rdf:type shext:Valid ;
+   mf:name      "ab_q-ab" ;
+   rdfs:comment "(ab)? -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_q-a> rdf:type shext:NotValid ;
+   mf:name      "ab_q-a" ;
+   rdfs:comment "(ab)? -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ab_q-b> rdf:type shext:NotValid ;
+   mf:name      "ab_q-b" ;
+   rdfs:comment "(ab)? -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ap_b_c-abc> rdf:type shext:Valid ;
+   mf:name      "ap_b_c-abc" ;
+   rdfs:comment "(a+)bc -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap_b_c.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ap_b_c-aabc> rdf:type shext:Valid ;
+   mf:name      "ap_b_c-aabc" ;
+   rdfs:comment "a+bc -> aabc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap_b_c.shex> ;
+   shext:instance <aabc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#ap_b_c-bc> rdf:type shext:NotValid ;
+   mf:name      "ap_b_c-bc" ;
+   rdfs:comment "a+bc -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ap_b_c.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#aqbq_q-a> rdf:type shext:Valid ;
+   mf:name      "aqbq_q-a" ;
+   rdfs:comment "(a?b?)? -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .     
+   
+<#aqbq_q-b> rdf:type shext:Valid ;
+   mf:name      "aqbq_q-b" ;
+   rdfs:comment "(a?b?)? -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .        
+   
+<#aqbq_q-ab> rdf:type shext:Valid ;
+   mf:name      "aqbq_q-ab" ;
+   rdfs:comment "(a?b?)? -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .           
+   
+<#aqbq_q-0> rdf:type shext:Valid ;
+   mf:name      "aqbq_q-0" ;
+   rdfs:comment "(a?b?)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .              
+   
+<#aqb_q-b> rdf:type shext:Valid ;
+   mf:name      "aqb_q-b" ;
+   rdfs:comment "(a?b)? -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                 
+   
+<#aqb_q-ab> rdf:type shext:Valid ;
+   mf:name      "aqb_q-ab" ;
+   rdfs:comment "(a?b)? -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                    
+   
+<#aqb_q-a> rdf:type shext:NotValid ;
+   mf:name      "aqb_q-a" ;
+   rdfs:comment "(a?b)? -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqb_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                       
+   
+<#abq_q-0> rdf:type shext:Valid ;
+   mf:name      "abq_q-0" ;
+   rdfs:comment "(ab?)q -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                          
+   
+<#abq_q-a> rdf:type shext:Valid ;
+   mf:name      "abq_q-a" ;
+   rdfs:comment "(ab?)q -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                             
+   
+<#abq_q-ab> rdf:type shext:Valid ;
+   mf:name      "abq_q-ab" ;
+   rdfs:comment "(ab?)q -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                                
+   
+<#abq_q-b> rdf:type shext:NotValid ;
+   mf:name      "abq_q-b" ;
+   rdfs:comment "(ab?)q -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abq_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                                   
+   
+<#aOr_b-a> rdf:type shext:Valid ;
+   mf:name      "aOr_b-a" ;
+   rdfs:comment "a|(b) -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOr_b.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                                      
+   
+<#aOr_b-b> rdf:type shext:Valid ;
+   mf:name      "aOr_b-b" ;
+   rdfs:comment "a|(b) -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOr_b.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#aOr_b-0> rdf:type shext:NotValid ;
+   mf:name      "aOr_b-0" ;
+   rdfs:comment "a|(b) -> 0 = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOr_b.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#aOr_b-ab> rdf:type shext:NotValid ;
+   mf:name      "aOr_b-ab" ;
+   rdfs:comment "a|(b) -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOr_b.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .   
+   
+<#aOrb-a> rdf:type shext:Valid ;
+   mf:name      "aOrb-a" ;
+   rdfs:comment "a|b -> a = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .      
+   
+<#aOrb-b> rdf:type shext:Valid ;
+   mf:name      "aOrb-b" ;
+   rdfs:comment "a|b -> b = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#aOrb-0> rdf:type shext:NotValid ;
+   mf:name      "aOrb-0" ;
+   rdfs:comment "a|b -> 0 = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+
+<#aOrb-ab> rdf:type shext:NotValid ;
+   mf:name      "aOrb-ab" ;
+   rdfs:comment "a|b -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrb.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#a_bOrc-ab> rdf:type shext:Valid ;
+   mf:name      "a_bOrc-ab" ;
+   rdfs:comment "a(b|c) -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a_bOrc.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#a_bOrc-ac> rdf:type shext:Valid ;
+   mf:name      "a_bOrc-ac" ;
+   rdfs:comment "a(b|c) -> ac = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a_bOrc.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#a_bOrc-a> rdf:type shext:NotValid ;
+   mf:name      "a_bOrc-a" ;
+   rdfs:comment "a(b|c) -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a_bOrc.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#a_bOrc-abc> rdf:type shext:NotValid ;
+   mf:name      "a_bOrc-abc" ;
+   rdfs:comment "a(b|c) -> abc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <a_bOrc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+   
+<#abqc_q-0> rdf:type shext:Valid ;
+   mf:name      "abqc_q-0" ;
+   rdfs:comment "(ab?c)? -> 0= ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#abqc_q-c> rdf:type shext:Valid ;
+   mf:name      "abqc_q-c" ;
+   rdfs:comment "(ab?c)? -> c= ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#abqc_q-abc> rdf:type shext:Valid ;
+   mf:name      "abqc_q-abc" ;
+   rdfs:comment "(ab?c)? -> abc= ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#abqc_q-b> rdf:type shext:NotValid ;
+   mf:name      "abqc_q-b" ;
+   rdfs:comment "(ab?c)? -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#abqc_q-ab> rdf:type shext:NotValid ;
+   mf:name      "abqc_q-ab" ;
+   rdfs:comment "(ab?c)? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#abqc_q-0> rdf:type shext:Valid ;
+   mf:name      "abqc_q-0" ;
+   rdfs:comment "(ab?c)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <abqc_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#__abq_qc_q-0> rdf:type shext:Valid ;
+   mf:name      "__abq_qc_q-0" ;
+   rdfs:comment "((ab?)?c)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#__abq_qc_q-c> rdf:type shext:Valid ;
+   mf:name      "__abq_qc_q-c" ;
+   rdfs:comment "((ab?)?c)? -> c = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#__abq_qc_q-ac> rdf:type shext:Valid ;
+   mf:name      "__abq_qc_q-ac" ;
+   rdfs:comment "((ab?)?c)? -> ac = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#__abq_qc_q-abc> rdf:type shext:Valid ;
+   mf:name      "__abq_qc_q-abc" ;
+   rdfs:comment "((ab?)?c)? -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#__abq_qc_q-a> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-a" ;
+   rdfs:comment "((ab?)?c)? -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#__abq_qc_q-b> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-b" ;
+   rdfs:comment "((ab?)?c)? -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#__abq_qc_q-ab> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-ab" ;
+   rdfs:comment "((ab?)?c)? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#__abq_qc_q-bc> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-bc" ;
+   rdfs:comment "((ab?)?c)? -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+  
+<#_aqb_qc_q-0> rdf:type shext:Valid ;
+   mf:name      "_aqb_qc_q-0" ;
+   rdfs:comment "((a?b)?c)? -> 0 = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#_aqb_qc_q-c> rdf:type shext:Valid ;
+   mf:name      "_aqb_qc_q-c" ;
+   rdfs:comment "((a?b)?c)? -> c = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .     
+   
+<#_aqb_qc_q-bc> rdf:type shext:Valid ;
+   mf:name      "_aqb_qc_q-bc" ;
+   rdfs:comment "((a?b)?c)? -> bc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .        
+   
+<#_aqb_qc_q-abc> rdf:type shext:Valid ;
+   mf:name      "_aqb_qc_q-abc" ;
+   rdfs:comment "((a?b)?c)? -> abc = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .           
+   
+<#_aqb_qc_q-a> rdf:type shext:NotValid ;
+   mf:name      "_aqb_qc_q-a" ;
+   rdfs:comment "((a?b)?c)? -> a = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+   
+<#_aqb_qc_q-b> rdf:type shext:NotValid ;
+   mf:name      "_aqb_qc_q-b" ;
+   rdfs:comment "((a?b)?c)? -> b = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .   
+   
+   
+<#_aqb_qc_q-ab> rdf:type shext:NotValid ;
+   mf:name      "_aqb_qc_q-ab" ;
+   rdfs:comment "((a?b)?c)? -> ab = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .      
+   
+<#_aqb_qc_q-ac> rdf:type shext:NotValid ;
+   mf:name      "_aqb_qc_q-ac" ;
+   rdfs:comment "((a?b)?c)? -> ac = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <_aqb_qc_q.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .         
+   
+# Different semantics in Jesse's tests      
+<#aOrbOrc-abc> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-abc" ;
+   rdfs:comment "(a|b)|c -> abc = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <abc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .            
+   
+<#aOrbOrc-bc> rdf:type shext:NotValid ;
+   mf:name      "aOrbOrc-bc" ;
+   rdfs:comment "(a|b)|c -> bc = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrbOrc.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .               
+   
+<#aOrc-c> rdf:type shext:Valid ;
+   mf:name      "aOrc-c" ;
+   rdfs:comment "a|c -> c = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrc.shex> ;
+   shext:instance <c.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                  
+   
+# Different semantics in Jesse's tests         
+<#aOrc-Ac> rdf:type shext:NotValid ;
+   mf:name      "aOrc-Ac" ;
+   rdfs:comment "a|c -> Ac = Fail" ;
+   shext:status shext:discussion ;
+   shext:schema   <aOrc.shex> ;
+   shext:instance <notAc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                     
+   
+<#aOrc-ac> rdf:type shext:NotValid ;
+   mf:name      "aOrc-ac" ;
+   rdfs:comment "a|c -> ac = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aOrc.shex> ;
+   shext:instance <ac.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .                        
+   
+<#ab-ab-rdf> rdf:type shext:Valid_FromRDF ;
+   mf:name      "ab-ab" ;
+   rdfs:comment "ab -> ab = ALL" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab_shex.ttl> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#neg_ab_ab> rdf:type shext:NotValid ;
+   mf:name      "neg_ab_ab" ;
+   rdfs:comment "neg_ab_ab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_ab_b> rdf:type shext:Valid ;
+   mf:name      "neg_ab_b" ;
+   rdfs:comment "neg_ab_b" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#neg_ab_a> rdf:type shext:Valid ;
+   mf:name      "neg_ab_a" ;
+   rdfs:comment "neg_ab_a" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_ab.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_aab_ab> rdf:type shext:Valid ;
+   mf:name      "neg_aab_ab" ;
+   rdfs:comment "neg_aab_ab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_aab.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#neg_aab_aab> rdf:type shext:NotValid ;
+   mf:name      "neg_aab_aab" ;
+   rdfs:comment "neg_aab_aab" ;
+   shext:status mf:proposed ;
+   shext:schema   <neg_aab.shex> ;
+   shext:instance <aab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#rec_a> rdf:type shext:Valid ;
+   mf:name      "rec_a" ;
+   rdfs:comment "rec_a" ;
+   shext:status mf:proposed ;
+   shext:schema   <rec_a.shex> ;
+   shext:instance <self.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#recursion_skos> rdf:type shext:Valid ;
+   mf:name      "recursion_skos" ;
+   rdfs:comment "recursion_skos" ;
+   shext:status mf:proposed ;
+   shext:schema   <skos.shex> ;
+   shext:instance <skos.ttl> ;
+   shext:iri    ex:MyConcept ; 
+   shext:shape  ex:SkosConceptShape
+   .  
+   
+# ShEx non-standard extensions
+   
+<#lang_es_es> rdf:type shext:Valid ;
+   mf:name      "lang_es_es" ;
+   rdfs:comment "lang_es_es" ;
+   shext:status mf:proposed ;
+   shext:schema   <lang_es.shex> ;
+   shext:instance <es.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#lang_es_en> rdf:type shext:NotValid ;
+   mf:name      "lang_es_en" ;
+   rdfs:comment "lang_es_en" ;
+   shext:status mf:proposed ;
+   shext:schema   <lang_es.shex> ;
+   shext:instance <en.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+   
+<#regex_a> rdf:type shext:NotValid ;
+   mf:name      "regex_a" ;
+   rdfs:comment "regex_a" ;
+   shext:status mf:proposedExtension ;
+   shext:schema   <regex_a.shex> ;
+   shext:instance <a_str.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
    
