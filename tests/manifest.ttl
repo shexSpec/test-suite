@@ -26,6 +26,8 @@
 	<#nonLiteral1> <#nonLiteral2>
 	<#nonBNode1> <#nonBNode2> <#nonBNode3>
 	<#ab-ab> <#ab-a>
+	<#xsd_double_simplified>
+	<#regex_aa>
     ) .
 
 <#a-string-syntax> rdf:type shext:PositiveSyntax ;
@@ -2266,6 +2268,87 @@
    shext:shape  ex:a
    .  
 
+<#valueSet21> rdf:type shext:Valid ;
+   mf:name      "valueSet21" ;
+   rdfs:comment "ValueSet21" ;
+   shext:status mf:proposed ;
+   shext:schema   <valueSet2.shex> ;
+   shext:instance <valueSet2_1.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#valueSet22> rdf:type shext:Valid ;
+   mf:name      "valueSet22" ;
+   rdfs:comment "ValueSet22" ;
+   shext:status mf:proposed ;
+   shext:schema   <valueSet2.shex> ;
+   shext:instance <valueSet2_2.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#valueSet2_none> rdf:type shext:NotValid ;
+   mf:name      "valueSet2_none" ;
+   rdfs:comment "ValueSet2_none" ;
+   shext:status mf:proposed ;
+   shext:schema   <valueSet2.shex> ;
+   shext:instance <valueSet2_none.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#xsd_double> rdf:type shext:Valid ;
+   mf:name      "xsd_double" ;
+   rdfs:comment "xsd_double" ;
+   shext:status mf:proposed ;
+   shext:schema   <xsd_double.shex> ;
+   shext:instance <xsd_double.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#xsd_double_simplified> rdf:type shext:Valid ;
+   mf:name      "xsd_double_simplified" ;
+   rdfs:comment "xsd_double_simplified" ;
+   shext:status mf:proposed ;
+   shext:schema   <xsd_double.shex> ;
+   shext:instance <xsd_double_simplified.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#listOfInt1> rdf:type shext:Valid ;
+   mf:name      "listOfInt1" ;
+   rdfs:comment "listOfInt1" ;
+   shext:status mf:proposed ;
+   shext:schema   <listOfInt.shex> ;
+   shext:instance <listOfInt1.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#listOfInt1_extended> rdf:type shext:Valid ;
+   mf:name      "listOfInt1_extended" ;
+   rdfs:comment "list of 1 int expressed in extended form" ;
+   shext:status mf:proposed ;
+   shext:schema   <listOfInt.shex> ;
+   shext:instance <listOfInt1_extended.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#listOfInt> rdf:type shext:Valid ;
+   mf:name      "listOfInt" ;
+   rdfs:comment "listOfInt" ;
+   shext:status mf:proposed ;
+   shext:schema   <listOfInt.shex> ;
+   shext:instance <listOfInt.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+   
 <#recursion_skos> rdf:type shext:Valid ;
    mf:name      "recursion_skos" ;
    rdfs:comment "recursion_skos" ;

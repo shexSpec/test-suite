@@ -2266,6 +2266,26 @@
    shext:shape  ex:a
    .  
 
+<#xsd_double> rdf:type shext:Valid ;
+   mf:name      "xsd_double" ;
+   rdfs:comment "xsd_double" ;
+   shext:status mf:proposed ;
+   shext:schema   <xsd_double.shex> ;
+   shext:instance <xsd_double.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+
+<#xsd_double_simplified> rdf:type shext:Valid ;
+   mf:name      "xsd_double_simplified" ;
+   rdfs:comment "xsd_double_simplified" ;
+   shext:status mf:proposed ;
+   shext:schema   <xsd_double.shex> ;
+   shext:instance <xsd_double_simplified.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
+   
 <#recursion_skos> rdf:type shext:Valid ;
    mf:name      "recursion_skos" ;
    rdfs:comment "recursion_skos" ;
@@ -2298,13 +2318,22 @@
    shext:shape  ex:Item
    .  
 
-   
-<#regex_a> rdf:type shext:NotValid ;
+<#regex_a> rdf:type shext:Valid ;
    mf:name      "regex_a" ;
    rdfs:comment "regex_a" ;
    shext:status mf:proposedExtension ;
    shext:schema   <regex_a.shex> ;
    shext:instance <a_str.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#regex_aa> rdf:type shext:Valid ;
+   mf:name      "regex_aa" ;
+   rdfs:comment "regex_aa" ;
+   shext:status mf:proposedExtension ;
+   shext:schema   <regex_a.shex> ;
+   shext:instance <aa_str.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
