@@ -139,8 +139,8 @@
    shext:status mf:proposed ;
    shext:schema   <star.shex> ;
    shext:instance <star0.ttl> ;
-   shext:iri    ex:x ; 
-   shext:shape  ex:a
+   shext:iri      ex:x ; 
+   shext:shape    ex:a ; 
    .
    
 <#star1> rdf:type shext:Valid ;
@@ -229,7 +229,6 @@
    shext:status mf:proposed ;
    shext:schema   <opt.shex> ;
    shext:instance <opt0.ttl> ;
-   shext:iri    ex:x ; 
    shext:shape  ex:a
    .
    
@@ -416,6 +415,16 @@
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
    .
+
+<#u> rdf:type shext:Valid ;
+   mf:name      "u" ;
+   rdfs:comment "Simplified User and issue shape" ;
+   shext:status mf:proposed ;
+   shext:schema   <u.shex> ;
+   shext:instance <u.ttl> ;
+   shext:iri    ex:y1 ; 
+   shext:shape  ex:Y
+   .
    
 <#iri> rdf:type shext:Valid ;
    mf:name      "iri1" ;
@@ -522,7 +531,6 @@
    shext:status mf:proposed ;
    shext:schema   <ab.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .            
    
 <#ab-a> rdf:type shext:NotValid ;
@@ -596,7 +604,6 @@
    shext:status mf:proposed ;
    shext:schema   <aqb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
 
 <#aqb-B> rdf:type shext:NotValid ;
@@ -614,7 +621,6 @@
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
    
 <#ab-AB> rdf:type shext:NotValid ;
@@ -701,7 +707,6 @@
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
 
 <#aOrb-ab> rdf:type shext:NotValid ;
@@ -748,7 +753,7 @@
    shext:schema   <aqOrbq.shex> ;
    shext:instance <0.ttl> ;
    shext:iri    ex:item ; 
-   shext:shape  ex:Item ; 
+   shext:shape  ex:Item
    .  
    
 <#aqOrbq-a> rdf:type shext:Valid ;
@@ -789,7 +794,7 @@
    shext:schema   <_aOrb_q.shex> ;
    shext:instance <0.ttl> ;
    shext:iri    ex:item ; 
-   shext:shape  ex:Item ; 
+   shext:shape  ex:Item
    .  
 
 # Different semantics in Jesse's tests
@@ -811,7 +816,7 @@
    shext:status shext:discussion ;
    shext:schema   <aqOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
+   shext:iri    ex:item ; # We declare an IRI so the system infers empty typing
    shext:shape  ex:Item
    .  
    
@@ -1097,16 +1102,6 @@
    shext:shape  ex:Item
    .  
 	  
-<#aq-0> rdf:type shext:Valid ;
-   mf:name      "aq-0" ;
-   rdfs:comment "a? -> 0 = ALL" ;
-   shext:status mf:proposed ;
-   shext:schema   <aq.shex> ;
-   shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
-   .  
-	  
 <#aq-a> rdf:type shext:Valid ;
    mf:name      "aq-a" ;
    rdfs:comment "a? -> a = ALL" ;
@@ -1133,8 +1128,6 @@
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .  	  
    
 <#ap-a> rdf:type shext:Valid ;
@@ -1233,6 +1226,16 @@
    shext:status mf:proposed ;
    shext:schema   <ap_q.shex> ;
    shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#ab-ba> rdf:type shext:Valid ;
+   mf:name      "ab-ba" ;
+   rdfs:comment "ab -> ba = NotValid" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <ba.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
@@ -1509,8 +1512,6 @@
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .  
    
 <#aOrbOrc-ab> rdf:type shext:NotValid ;
@@ -1829,8 +1830,6 @@
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
    
 <#aOr_b-ab> rdf:type shext:NotValid ;
@@ -1869,8 +1868,6 @@
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
 
 <#aOrb-ab> rdf:type shext:NotValid ;
@@ -1980,8 +1977,6 @@
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
    
 <#__abq_qc_q-0> rdf:type shext:Valid ;

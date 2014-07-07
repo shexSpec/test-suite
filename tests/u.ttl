@@ -1,0 +1,15 @@
+prefix : <http://example.org/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+#:issue1 :state :assigned ; 
+#        :reportedBy :john .
+
+:x1 :a 1 ; :b 1 ; :c <mailto:x.com> .
+
+:x2 :n 1  ; :c <mailto:x.com> .
+	
+:y1 :s 1; :r :x1 .
+
+:y2 :s <a>; :r :x1 .
+
+:y3 :s 1; :r :x2 .

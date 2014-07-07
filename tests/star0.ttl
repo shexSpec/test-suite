@@ -1,3 +1,4 @@
 prefix : <http://example.org/> 
 
 # :x has no out links...
+:z :y :x .
