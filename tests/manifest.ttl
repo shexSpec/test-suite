@@ -2343,6 +2343,15 @@
    shext:shape  ex:a
    .  
 
+<#range2-4-2> rdf:type shext:Valid ;
+   mf:name      "range2-4_2" ;
+   rdfs:comment "range2-4_2" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:x ; 
+   shext:shape  ex:a
+   .  
    
 <#recursion_skos> rdf:type shext:Valid ;
    mf:name      "recursion_skos" ;
