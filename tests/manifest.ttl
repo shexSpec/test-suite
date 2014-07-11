@@ -2349,10 +2349,91 @@
    shext:status mf:proposed ;
    shext:schema   <range2-4.shex> ;
    shext:instance <aa.ttl> ;
-   shext:iri    ex:x ; 
-   shext:shape  ex:a
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range2-4-1> rdf:type shext:NotValid ;
+   mf:name      "range2-4_1" ;
+   rdfs:comment "range2-4_1" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .  
    
+<#range2-4-3> rdf:type shext:Valid ;
+   mf:name      "range2-4_3" ;
+   rdfs:comment "range2-4_3" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range2-4-4> rdf:type shext:Valid ;
+   mf:name      "range2-4_4" ;
+   rdfs:comment "range2-4_4" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#range2-4-5> rdf:type shext:NotValid ;
+   mf:name      "range2-4_5" ;
+   rdfs:comment "range2-4_5" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaaaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#rangeMin2-1> rdf:type shext:NotValid ;
+   mf:name      "rangeMin2-1" ;
+   rdfs:comment "rangeMin2-1" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#range2-4-2_plain> rdf:type shext:Valid ;
+   mf:name      "range2-4_2_plain" ;
+   rdfs:comment "range2-4_2_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4_plain.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range1-2-1_plain> rdf:type shext:Valid ;
+   mf:name      "range1-2_1_plain" ;
+   rdfs:comment "range1-2_1_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range1-2_plain.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range1-2-2_plain> rdf:type shext:Valid ;
+   mf:name      "range1-2_2_plain" ;
+   rdfs:comment "range1-2_2_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range1-2_plain.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
 <#recursion_skos> rdf:type shext:Valid ;
    mf:name      "recursion_skos" ;
    rdfs:comment "recursion_skos" ;
