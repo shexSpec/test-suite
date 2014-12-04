@@ -10,16 +10,33 @@
     rdfs:comment "ShEx tests" ;
     mf:entries
     (
-	<#user2>
+    <#a-string-syntax>
+    <#simple-star>
+    <#a-string-valid>
+	<#conjunction1>
+	<#a-string-no-valid>
+	<#conjunction1> <#conjunction2> <#conjunction3> <#conjunction4>
+	<#disjunction1> <#disjunction2> <#disjunction3> <#disjunction4>
+	<#star0> <#star1> <#star2> <#star3>
+	<#plus0no> <#plus1> <#plus2> <#plus3>
+	<#country-observations-valid>
+	<#user1> <#user2>
+	<#nonIRI1> <#nonIRI2>
+	<#iri> <#bNode>
+	<#nonLiteral1> <#nonLiteral2>
+	<#nonBNode1> <#nonBNode2> <#nonBNode3>
+	<#ab-ab> <#ab-a>
+	<#xsd_double_simplified>
+	<#regex_aa>
     ) .
 
-<#star0> rdf:type shext:Valid ;
-   mf:name      "star0" ;
-   rdfs:comment "star 0" ;
+<#xsd_double> rdf:type shext:Valid ;
+   mf:name      "xsd_double" ;
+   rdfs:comment "xsd_double" ;
    shext:status mf:proposed ;
-   shext:schema   <star.shex> ;
-   shext:instance <star0.ttl> ;
+   shext:schema   <xsd_double.shex> ;
+   shext:instance <xsd_double.ttl> ;
    shext:iri    ex:x ; 
    shext:shape  ex:a
-   .
-   
+   .  
+

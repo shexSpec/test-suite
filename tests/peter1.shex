@@ -1,0 +1,5 @@
+prefix ex: <http://example.org/>
+
+<foo> { ex:bar1 (ex:val1)? }
+
+<empty> { }

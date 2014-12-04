@@ -94,13 +94,14 @@
    # No shape assigned
    .
 
-<#disjunction1> rdf:type shext:NotValid ;
+<#disjunction1> rdf:type shext:Valid ;
    mf:name      "disjunction1" ;
    rdfs:comment "disjunction 1 (should fail)" ;
    shext:status mf:proposed ;
    shext:schema   <disjunction.shex> ;
    shext:instance <disjunction1.ttl> ;
-   shext:iri      ex:x 
+   shext:iri      ex:x ; 
+   shext:shape    ex:a
    # No shape assigned
    .
 
@@ -139,8 +140,8 @@
    shext:status mf:proposed ;
    shext:schema   <star.shex> ;
    shext:instance <star0.ttl> ;
-   shext:iri    ex:x ; 
-   shext:shape  ex:a
+   shext:iri      ex:x ; 
+   shext:shape    ex:a ; 
    .
    
 <#star1> rdf:type shext:Valid ;
@@ -173,7 +174,7 @@
    shext:shape  ex:a
    .
 
-<#no-star1> rdf:type shext:NotValid ;
+<#no-star1> rdf:type shext:Valid ;
    mf:name      "no-star1" ;
    rdfs:comment "star 3" ;
    shext:status mf:proposed ;
@@ -242,7 +243,7 @@
    shext:shape  ex:a
    .
 
-<#opt2> rdf:type shext:NotValid ;
+<#opt2> rdf:type shext:Valid ;
    mf:name      "opt2" ;
    rdfs:comment "opt 2" ;
    shext:status mf:proposed ;
@@ -262,14 +263,16 @@
    shext:shape  ex:a
    .
 
-<#optOr2> rdf:type shext:NotValid ;
+<#optOr2> rdf:type shext:Valid ;
    mf:name      "optOr2" ;
    rdfs:comment "optOr 2" ;
    shext:status mf:proposed ;
    shext:schema   <optOr.shex> ;
    shext:instance <optOr2.ttl> ;
-   shext:iri    ex:x 
+   shext:iri    ex:x ;
+   shext:shape  ex:a
    .
+
 
 <#optOr3> rdf:type shext:Valid ;
    mf:name      "optOr3" ;
@@ -351,13 +354,14 @@
    shext:shape  ex:a
    .
    
-<#groupOptOr2> rdf:type shext:NotValid ;
+<#groupOptOr2> rdf:type shext:Valid ;
    mf:name      "groupOptOr2" ;
    rdfs:comment "groupOptOr 2" ;
    shext:status mf:proposed ;
    shext:schema   <groupOptOr.shex> ;
    shext:instance <groupOptOr2.ttl> ;
-   shext:iri    ex:x 
+   shext:iri    ex:x ;
+   shext:shape  ex:a
    .
 
 <#groupOptOr3> rdf:type shext:Valid ;
@@ -414,6 +418,16 @@
    shext:instance <user2.ttl> ;
    shext:iri    ex:issue1 ; 
    shext:shape  ex:IssueShape
+   .
+
+<#u> rdf:type shext:Valid ;
+   mf:name      "u" ;
+   rdfs:comment "Simplified User and issue shape" ;
+   shext:status mf:proposed ;
+   shext:schema   <u.shex> ;
+   shext:instance <u.ttl> ;
+   shext:iri    ex:y1 ; 
+   shext:shape  ex:Y
    .
    
 <#iri> rdf:type shext:Valid ;
@@ -521,7 +535,6 @@
    shext:status mf:proposed ;
    shext:schema   <ab.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .            
    
 <#ab-a> rdf:type shext:NotValid ;
@@ -571,22 +584,26 @@
    shext:shape  ex:Item
    .            
    
-<#aqbq-B> rdf:type shext:NotValid ;
+# with open shapes B is a remaining triple
+<#aqbq-B> rdf:type shext:Valid ;
    mf:name      "aqbq-B" ;
-   rdfs:comment "a?b?->B = Fail" ;
+   rdfs:comment "a?b?->B = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq.shex> ;
    shext:instance <notB.ttl> ;
    shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .            
    
-<#aqbq-aB> rdf:type shext:NotValid ;
+# with open shapes aB is a remaining triple   
+<#aqbq-aB> rdf:type shext:Valid ;
    mf:name      "aqbq-aB" ;
-   rdfs:comment "a?b?->aB = Fail" ;
+   rdfs:comment "a?b?->aB = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq.shex> ;
    shext:instance <anotB.ttl> ;
    shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .            
    
 <#aqb-0> rdf:type shext:NotValid ;
@@ -595,7 +612,6 @@
    shext:status mf:proposed ;
    shext:schema   <aqb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
 
 <#aqb-B> rdf:type shext:NotValid ;
@@ -613,7 +629,6 @@
    shext:status mf:proposed ;
    shext:schema   <abq.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
    
 <#ab-AB> rdf:type shext:NotValid ;
@@ -673,7 +688,7 @@
    .  
    
 # This test depends on the Open/Closed shapes semantics
-<#aOrb-Ab> rdf:type shext:NotValid ;
+<#aOrb-Ab> rdf:type shext:Valid ;
    mf:name      "aOrb-Ab" ;
    rdfs:comment "a|b -> Ab = FAIL" ;
    shext:status shext:discussion ;
@@ -684,9 +699,9 @@
    .  
    
 # This test depends on the Open/Closed shapes semantics
-<#aOrb-aB> rdf:type shext:NotValid ;
+<#aOrb-aB> rdf:type shext:Valid ;
    mf:name      "aOrb-aB" ;
-   rdfs:comment "a|b -> aB = FAIL" ;
+   rdfs:comment "a|b -> aB = PASS" ;
    shext:status shext:discussion ;
    shext:schema   <aOrb.shex> ;
    shext:instance <anotB.ttl> ;
@@ -700,12 +715,12 @@
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
    .  
 
-<#aOrb-ab> rdf:type shext:NotValid ;
+# with open shapes it passes because with a, b is a remaining triple and viceversa
+<#aOrb-ab> rdf:type shext:Valid ;
    mf:name      "aOrb-ab" ;
-   rdfs:comment "a|b -> ab = FAIL" ;
+   rdfs:comment "a|b -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <ab.ttl> ;
@@ -747,7 +762,7 @@
    shext:schema   <aqOrbq.shex> ;
    shext:instance <0.ttl> ;
    shext:iri    ex:item ; 
-   shext:shape  ex:Item ; 
+   shext:shape  ex:Item
    .  
    
 <#aqOrbq-a> rdf:type shext:Valid ;
@@ -770,9 +785,10 @@
    shext:shape  ex:Item ; 
    .  
 
-<#aqOrbq-ab> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aqOrbq-ab> rdf:type shext:Valid ;
    mf:name      "aqOrbq-ab" ;
-   rdfs:comment "a?|b? -> ab = FAIL" ;
+   rdfs:comment "a?|b? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqOrbq.shex> ;
    shext:instance <ab.ttl> ;
@@ -780,7 +796,6 @@
    shext:shape  ex:Item ; 
    .  
    
-# Different semantics in Jesse's tests
 <#_aOrb_q-0> rdf:type shext:Valid ;
    mf:name      "_aOrb_q-0" ;
    rdfs:comment "(a|b)? -> 0 = ALL" ;
@@ -788,37 +803,35 @@
    shext:schema   <_aOrb_q.shex> ;
    shext:instance <0.ttl> ;
    shext:iri    ex:item ; 
-   shext:shape  ex:Item ; 
+   shext:shape  ex:Item
    .  
 
-# Different semantics in Jesse's tests
 # Depends on Open/Close semantics
-<#_aOrb_q-A> rdf:type shext:NotValid ;
+<#_aOrb_q-A> rdf:type shext:Valid ;
    mf:name      "_aOrb_q-A" ;
-   rdfs:comment "(a|b)? -> A = Fail" ;
+   rdfs:comment "(a|b)? -> A = PASS" ;
    shext:status shext:discussion ;
    shext:schema   <_aOrb_q.shex> ;
    shext:instance <notA.ttl> ;
    shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .  
 
 # Different semantics in Jesse's tests
-# Depends on Open/Close semantics
 <#aqOrb-0> rdf:type shext:Valid ;
    mf:name      "aqOrb-0" ;
    rdfs:comment "a?|b -> 0 = ALL" ;
    shext:status shext:discussion ;
    shext:schema   <aqOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
+   shext:iri    ex:item ; # We declare an IRI so the system infers empty typing
    shext:shape  ex:Item
    .  
    
-# Different semantics in Jesse's tests
-# Depends on Open/Close semantics
-<#aqOrb-B> rdf:type shext:NotValid ;
+# Depends on Open/Closed shapes
+<#aqOrb-B> rdf:type shext:Valid ;
    mf:name      "aqOrb-B" ;
-   rdfs:comment "a?|b -> B = Fail" ;
+   rdfs:comment "a?|b -> B = Pass" ;
    shext:status shext:discussion ;
    shext:schema   <aqOrb.shex> ;
    shext:instance <notB.ttl> ;
@@ -836,9 +849,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrb_cq-ab> rdf:type shext:NotValid ;
+# with open shapes, it passes 
+<#aOrb_cq-ab> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-ab" ;
-   rdfs:comment "(a|b)c? -> ab = Fail" ;
+   rdfs:comment "(a|b)c? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <ab.ttl> ;
@@ -846,9 +860,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrb_cq-abc> rdf:type shext:NotValid ;
+# with open shapes, it passes 
+<#aOrb_cq-abc> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-abc" ;
-   rdfs:comment "(a|b)c? -> abc = Fail" ;
+   rdfs:comment "(a|b)c? -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <abc.ttl> ;
@@ -856,9 +871,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrb_cq-abC> rdf:type shext:NotValid ;
+# with open shapes, it passes 
+<#aOrb_cq-abC> rdf:type shext:Valid ;
    mf:name      "aOrb_cq-abC" ;
-   rdfs:comment "(a|b)c? -> abC = Fail" ;
+   rdfs:comment "(a|b)c? -> abC = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cq.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -915,10 +931,11 @@
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
-      
-<#aq_bOrc-abc> rdf:type shext:NotValid ;
+ 
+# with open shapes it passes 
+<#aq_bOrc-abc> rdf:type shext:Valid ;
    mf:name      "aq_bOrc-abc" ;
-   rdfs:comment "a?(b|c) -> abc = FAIL" ;
+   rdfs:comment "a?(b|c) -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -926,9 +943,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aq_bOrc-Abc> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aq_bOrc-Abc> rdf:type shext:Valid ;
    mf:name      "aq_bOrc-Abc" ;
-   rdfs:comment "a?(b|c) -> Abc = FAIL" ;
+   rdfs:comment "a?(b|c) -> Abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <notAbc.ttl> ;
@@ -936,9 +954,9 @@
    shext:shape  ex:Item
    .  
 	  
-<#aq_bOrc-bc> rdf:type shext:NotValid ;
+<#aq_bOrc-bc> rdf:type shext:Valid ;
    mf:name      "aq_bOrc-bc" ;
-   rdfs:comment "a?(b|c) -> bc = FAIL" ;
+   rdfs:comment "a?(b|c) -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aq_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -946,9 +964,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_cOrb-abcd> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aOrb_cOrb-abcd> rdf:type shext:Valid ;
    mf:name      "aOrb_cOrd-abcd" ;
-   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_cOrd.shex> ;
    shext:instance <abcd.ttl> ;
@@ -956,9 +975,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_Orc-ab> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aOrb_Orc-ab> rdf:type shext:Valid ;
    mf:name      "aOrb_Orc-ab" ;
-   rdfs:comment "(a|b)|c -> ab = FAIL" ;
+   rdfs:comment "(a|b)|c -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orc.shex> ;
    shext:instance <ab.ttl> ;
@@ -966,9 +986,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_Orcq-ab> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aOrb_Orcq-ab> rdf:type shext:Valid ;
    mf:name      "aOrb_Orcq-ab" ;
-   rdfs:comment "(a|b)|c? -> ab = FAIL" ;
+   rdfs:comment "(a|b)|c? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <ab.ttl> ;
@@ -976,9 +997,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_Orcq-abc> rdf:type shext:NotValid ;
+# with open shapes it passes 
+<#aOrb_Orcq-abc> rdf:type shext:Valid ;
    mf:name      "aOrb_Orcq-abc" ;
-   rdfs:comment "(a|b)|c? -> abc = FAIL" ;
+   rdfs:comment "(a|b)|c? -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <abc.ttl> ;
@@ -986,9 +1008,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_Orcq-abC> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aOrb_Orcq-abC> rdf:type shext:Valid ;
    mf:name      "aOrb_Orcq-abC" ;
-   rdfs:comment "(a|b)|c? -> abC = FAIL" ;
+   rdfs:comment "(a|b)|c? -> abC = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_Orcq.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -996,9 +1019,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOr_bOrc-bc> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aOr_bOrc-bc> rdf:type shext:Valid ;
    mf:name      "aOr_bOrc-bc" ;
-   rdfs:comment "a|(b|c) -> bc = FAIL" ;
+   rdfs:comment "a|(b|c) -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOr_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1006,9 +1030,10 @@
    shext:shape  ex:Item
    .  
    
-<#aqOr_bOrc-abc> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aqOr_bOrc-abc> rdf:type shext:Valid ;
    mf:name      "aqOr_bOrc-abc" ;
-   rdfs:comment "a?|(b|c) -> abc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1016,9 +1041,9 @@
    shext:shape  ex:Item
    .  
 	  
-<#aqOr_bOrc-Abc> rdf:type shext:NotValid ;
+<#aqOr_bOrc-Abc> rdf:type shext:Valid ;
    mf:name      "aqOr_bOrc-Abc" ;
-   rdfs:comment "a?|(b|c) -> Abc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> Abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <notAbc.ttl> ;
@@ -1026,9 +1051,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aqOr_bOrc-bc> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aqOr_bOrc-bc> rdf:type shext:Valid ;
    mf:name      "aqOr_bOrc-bc" ;
-   rdfs:comment "a?|(b|c) -> bc = FAIL" ;
+   rdfs:comment "a?|(b|c) -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqOr_bOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1036,9 +1062,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_or_cOrd-abcd> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aOrb_or_cOrd-abcd> rdf:type shext:Valid ;
    mf:name      "aOrb_or_cOrd-abcd" ;
-   rdfs:comment "(a|b)(c|d) -> abcd = FAIL" ;
+   rdfs:comment "(a|b)(c|d) -> abcd = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_or_cOrd.shex> ;
    shext:instance <abcd.ttl> ;
@@ -1046,9 +1073,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aOrb_q-ab> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aOrb_q-ab> rdf:type shext:Valid ;
    mf:name      "aOrb_q-ab" ;
-   rdfs:comment "(a|b)? -> ab = FAIL" ;
+   rdfs:comment "(a|b)? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1057,11 +1085,13 @@
    .  
 	  
 <#aq-0> rdf:type shext:Valid ;
-   mf:name      "aq-0 xxxxx" ;
+   mf:name      "aq-0" ;
    rdfs:comment "a? -> 0 = ALL" ;
    shext:status mf:proposed ;
-   shext:schema   <aqdddd.shex> ;
+   shext:schema   <aq.shex> ;
    shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .  
 	  
 <#aq-a> rdf:type shext:Valid ;
@@ -1094,16 +1124,6 @@
    shext:shape  ex:Item
    .  
 	  
-<#aq-0> rdf:type shext:Valid ;
-   mf:name      "aq-0" ;
-   rdfs:comment "a? -> 0 = ALL" ;
-   shext:status mf:proposed ;
-   shext:schema   <aq.shex> ;
-   shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
-   .  
-	  
 <#aq-a> rdf:type shext:Valid ;
    mf:name      "aq-a" ;
    rdfs:comment "a? -> a = ALL" ;
@@ -1114,9 +1134,10 @@
    shext:shape  ex:Item
    .  
 	  
-<#aq-aa> rdf:type shext:NotValid ;
+# Passes with open shapes
+<#aq-aa> rdf:type shext:Valid ;
    mf:name      "aq-aa" ;
-   rdfs:comment "a? -> aa = FAIL" ;
+   rdfs:comment "a? -> aa = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aq.shex> ;
    shext:instance <aa.ttl> ;
@@ -1130,8 +1151,6 @@
    shext:status mf:proposed ;
    shext:schema   <ap.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .  	  
    
 <#ap-a> rdf:type shext:Valid ;
@@ -1204,9 +1223,9 @@
    shext:shape  ex:Item
    .  
 	  
-<#as-ab> rdf:type shext:NotValid ;
+<#as-ab> rdf:type shext:Valid ;
    mf:name      "as-ab" ;
-   rdfs:comment "a* -> ab = FAIL" ;
+   rdfs:comment "a* -> ab = PASS with Open shapes" ;
    shext:status mf:proposed ;
    shext:schema   <as.shex> ;
    shext:instance <ab.ttl> ;
@@ -1230,6 +1249,16 @@
    shext:status mf:proposed ;
    shext:schema   <ap_q.shex> ;
    shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#ab-ba> rdf:type shext:Valid ;
+   mf:name      "ab-ba" ;
+   rdfs:comment "ab -> ba = NotValid" ;
+   shext:status mf:proposed ;
+   shext:schema   <ab.shex> ;
+   shext:instance <ba.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
@@ -1437,9 +1466,9 @@
    shext:shape  ex:Item
    .  
    
-<#aqbq-Ab> rdf:type shext:NotValid ;
+<#aqbq-Ab> rdf:type shext:Valid ;
    mf:name      "aqbq-Ab" ;
-   rdfs:comment "a?b? -> Ab = FAIL" ;
+   rdfs:comment "a?b? -> Ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqbq.shex> ;
    shext:instance <notAb.ttl> ;
@@ -1478,10 +1507,9 @@
    .  
    
   
-# Different semantics in Jesse's tests     
-<#aOrbOrc-ABc> rdf:type shext:NotValid ;
+<#aOrbOrc-ABc> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-ABc" ;
-   rdfs:comment "a|b|c -> ABc = Fail" ;
+   rdfs:comment "a|b|c -> ABc = PASS" ;
    shext:status shext:discussion ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <notAnotBc.ttl> ;
@@ -1489,10 +1517,9 @@
    shext:shape  ex:Item
    .  
    
-# Different semantics in Jesse's tests     
-<#aOrbOrc-aBC> rdf:type shext:NotValid ;
+<#aOrbOrc-aBC> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-aBC" ;
-   rdfs:comment "a|b|c -> aBC = Fail" ;
+   rdfs:comment "a|b|c -> aBC = PASS" ;
    shext:status shext:discussion ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <anotBnotC.ttl> ;
@@ -1506,13 +1533,12 @@
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .  
    
-<#aOrbOrc-ab> rdf:type shext:NotValid ;
+# with open shapes it passes...with one a, b is a remaining triple...
+<#aOrbOrc-ab> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-ab" ;
-   rdfs:comment "a|b|c -> ab = Fail" ;
+   rdfs:comment "a|b|c -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <ab.ttl> ;
@@ -1520,9 +1546,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrbOrc-ac> rdf:type shext:NotValid ;
+# with open shapes it passes...with one a, c is a remaining triple...
+<#aOrbOrc-ac> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-ac" ;
-   rdfs:comment "a|b|c -> ac = Fail" ;
+   rdfs:comment "a|b|c -> ac = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <ac.ttl> ;
@@ -1530,9 +1557,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrbOrc-bc> rdf:type shext:NotValid ;
+# with open shapes it passes...with one b, c is a remaining triple...
+<#aOrbOrc-bc> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-bc" ;
-   rdfs:comment "a|b|c -> bc = Fail" ;
+   rdfs:comment "a|b|c -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -1540,9 +1568,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrbOrc-abc> rdf:type shext:NotValid ;
+# with open shapes it passes...with one a, b and c are remaining triples...
+<#aOrbOrc-abc> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-abc" ;
-   rdfs:comment "a|b|c -> abc = Fail" ;
+   rdfs:comment "a|b|c -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1550,9 +1579,10 @@
    shext:shape  ex:Item
    .  
    
-<#aOrbOrc-abC> rdf:type shext:NotValid ;
+# with open shapes it passes...with one a, b and C are remaining triples...
+<#aOrbOrc-abC> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-abC" ;
-   rdfs:comment "a|b|c -> abC = Fail" ;
+   rdfs:comment "a|b|c -> abC = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <abnotC.ttl> ;
@@ -1626,6 +1656,7 @@
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <0.ttl> ;
+   shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
    
@@ -1639,9 +1670,10 @@
    shext:shape  ex:Item
    .  
    
-<#ab_q-a> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#ab_q-a> rdf:type shext:Valid ;
    mf:name      "ab_q-a" ;
-   rdfs:comment "(ab)? -> a = FAIL" ;
+   rdfs:comment "(ab)? -> a = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1649,9 +1681,10 @@
    shext:shape  ex:Item
    .  
    
-<#ab_q-b> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#ab_q-b> rdf:type shext:Valid ;
    mf:name      "ab_q-b" ;
-   rdfs:comment "(ab)? -> b = FAIL" ;
+   rdfs:comment "(ab)? -> b = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <ab_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1749,9 +1782,10 @@
    shext:shape  ex:Item
    .                    
    
-<#aqb_q-a> rdf:type shext:NotValid ;
+# with open shapes a is a remaining
+<#aqb_q-a> rdf:type shext:Valid ;
    mf:name      "aqb_q-a" ;
-   rdfs:comment "(a?b)? -> a = FAIL" ;
+   rdfs:comment "(a?b)? -> a = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aqb_q.shex> ;
    shext:instance <a.ttl> ;
@@ -1789,9 +1823,10 @@
    shext:shape  ex:Item
    .                                
    
-<#abq_q-b> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#abq_q-b> rdf:type shext:Valid ;
    mf:name      "abq_q-b" ;
-   rdfs:comment "(ab?)q -> b = FAIL" ;
+   rdfs:comment "(ab?)q -> b = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <abq_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1825,11 +1860,10 @@
    shext:status mf:proposed ;
    shext:schema   <aOr_b.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
    
-<#aOr_b-ab> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#aOr_b-ab> rdf:type shext:Valid ;
    mf:name      "aOr_b-ab" ;
    rdfs:comment "a|(b) -> ab = Fail" ;
    shext:status mf:proposed ;
@@ -1865,13 +1899,12 @@
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
 
-<#aOrb-ab> rdf:type shext:NotValid ;
+# with open shapes it passes, with one a, b is a remaining triple
+<#aOrb-ab> rdf:type shext:Valid ;
    mf:name      "aOrb-ab" ;
-   rdfs:comment "a|b -> ab = Fail" ;
+   rdfs:comment "a|b -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrb.shex> ;
    shext:instance <ab.ttl> ;
@@ -1909,9 +1942,10 @@
    shext:shape  ex:Item
    .
    
-<#a_bOrc-abc> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#a_bOrc-abc> rdf:type shext:Valid ;
    mf:name      "a_bOrc-abc" ;
-   rdfs:comment "a(b|c) -> abc = FAIL" ;
+   rdfs:comment "a(b|c) -> abc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <a_bOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -1950,9 +1984,10 @@
    shext:shape  ex:Item
    .
    
-<#abqc_q-b> rdf:type shext:NotValid ;
+# with open shapes it passes
+<#abqc_q-b> rdf:type shext:Valid ;
    mf:name      "abqc_q-b" ;
-   rdfs:comment "(ab?c)? -> b = FAIL" ;
+   rdfs:comment "(ab?c)? -> b = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <b.ttl> ;
@@ -1960,9 +1995,9 @@
    shext:shape  ex:Item
    .
    
-<#abqc_q-ab> rdf:type shext:NotValid ;
+<#abqc_q-ab> rdf:type shext:Valid ;
    mf:name      "abqc_q-ab" ;
-   rdfs:comment "(ab?c)? -> ab = FAIL" ;
+   rdfs:comment "(ab?c)? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -1976,8 +2011,6 @@
    shext:status mf:proposed ;
    shext:schema   <abqc_q.shex> ;
    shext:instance <0.ttl> ;
-   shext:iri    ex:item ; 
-   shext:shape  ex:Item
    .
    
 <#__abq_qc_q-0> rdf:type shext:Valid ;
@@ -2019,40 +2052,45 @@
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .
-  
-<#__abq_qc_q-a> rdf:type shext:NotValid ;
+
+# With open semantics it passes...the remaining triples are the a
+<#__abq_qc_q-a> rdf:type shext:Valid ;
    mf:name      "__abq_qc_q-a" ;
-   rdfs:comment "((ab?)?c)? -> a = FAIL" ;
+   rdfs:comment "((ab?)?c)? -> a = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <__abq_qc_q.shex> ;
    shext:instance <a.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .
-  
-<#__abq_qc_q-b> rdf:type shext:NotValid ;
+
+
+# With open semantics it passes...the remaining triples are the b
+<#__abq_qc_q-b> rdf:type shext:Valid ;
    mf:name      "__abq_qc_q-b" ;
-   rdfs:comment "((ab?)?c)? -> b = FAIL" ;
+   rdfs:comment "((ab?)?c)? -> b = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <__abq_qc_q.shex> ;
    shext:instance <b.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .
-  
-<#__abq_qc_q-ab> rdf:type shext:NotValid ;
+
+# With open semantics it passes...the remaining triples are the ab
+<#__abq_qc_q-ab> rdf:type shext:Valid ;
    mf:name      "__abq_qc_q-ab" ;
-   rdfs:comment "((ab?)?c)? -> ab = FAIL" ;
+   rdfs:comment "((ab?)?c)? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <__abq_qc_q.shex> ;
    shext:instance <ab.ttl> ;
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .
-  
-<#__abq_qc_q-bc> rdf:type shext:NotValid ;
+
+# With open semantics it passes...the remaining triples are the bc
+<#__abq_qc_q-bc> rdf:type shext:Valid ;
    mf:name      "__abq_qc_q-bc" ;
-   rdfs:comment "((ab?)?c)? -> bc = FAIL" ;
+   rdfs:comment "((ab?)?c)? -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <__abq_qc_q.shex> ;
    shext:instance <bc.ttl> ;
@@ -2100,9 +2138,10 @@
    shext:shape  ex:Item
    .           
    
-<#_aqb_qc_q-a> rdf:type shext:NotValid ;
+# With open semantics it passes...the remaining triple is a
+<#_aqb_qc_q-a> rdf:type shext:Valid ;
    mf:name      "_aqb_qc_q-a" ;
-   rdfs:comment "((a?b)?c)? -> a = Fail" ;
+   rdfs:comment "((a?b)?c)? -> a = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <_aqb_qc_q.shex> ;
    shext:instance <a.ttl> ;
@@ -2110,9 +2149,10 @@
    shext:shape  ex:Item
    .
    
-<#_aqb_qc_q-b> rdf:type shext:NotValid ;
+# With open semantics it passes...the remaining triple is a
+<#_aqb_qc_q-b> rdf:type shext:Valid ;
    mf:name      "_aqb_qc_q-b" ;
-   rdfs:comment "((a?b)?c)? -> b = Fail" ;
+   rdfs:comment "((a?b)?c)? -> b = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <_aqb_qc_q.shex> ;
    shext:instance <b.ttl> ;
@@ -2121,9 +2161,10 @@
    .   
    
    
-<#_aqb_qc_q-ab> rdf:type shext:NotValid ;
+# With open semantics it passes...the remaining triples are ab
+<#_aqb_qc_q-ab> rdf:type shext:Valid ;
    mf:name      "_aqb_qc_q-ab" ;
-   rdfs:comment "((a?b)?c)? -> ab = Fail" ;
+   rdfs:comment "((a?b)?c)? -> ab = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <_aqb_qc_q.shex> ;
    shext:instance <ab.ttl> ;
@@ -2131,9 +2172,10 @@
    shext:shape  ex:Item
    .      
    
-<#_aqb_qc_q-ac> rdf:type shext:NotValid ;
+# With open semantics it passes...the remaining triples are ac
+<#_aqb_qc_q-ac> rdf:type shext:Valid ;
    mf:name      "_aqb_qc_q-ac" ;
-   rdfs:comment "((a?b)?c)? -> ac = Fail" ;
+   rdfs:comment "((a?b)?c)? -> ac = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <_aqb_qc_q.shex> ;
    shext:instance <ac.ttl> ;
@@ -2141,10 +2183,9 @@
    shext:shape  ex:Item
    .         
    
-# Different semantics in Jesse's tests      
-<#aOrbOrc-abc> rdf:type shext:NotValid ;
+<#aOrbOrc-abc> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-abc" ;
-   rdfs:comment "(a|b)|c -> abc = Fail" ;
+   rdfs:comment "(a|b)|c -> abc = PASS" ;
    shext:status shext:discussion ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <abc.ttl> ;
@@ -2152,9 +2193,9 @@
    shext:shape  ex:Item
    .            
    
-<#aOrbOrc-bc> rdf:type shext:NotValid ;
+<#aOrbOrc-bc> rdf:type shext:Valid ;
    mf:name      "aOrbOrc-bc" ;
-   rdfs:comment "(a|b)|c -> bc = Fail" ;
+   rdfs:comment "(a|b)|c -> bc = PASS" ;
    shext:status mf:proposed ;
    shext:schema   <aOrbOrc.shex> ;
    shext:instance <bc.ttl> ;
@@ -2172,8 +2213,7 @@
    shext:shape  ex:Item
    .                  
    
-# Different semantics in Jesse's tests         
-<#aOrc-Ac> rdf:type shext:NotValid ;
+<#aOrc-Ac> rdf:type shext:Valid ;
    mf:name      "aOrc-Ac" ;
    rdfs:comment "a|c -> Ac = Fail" ;
    shext:status shext:discussion ;
@@ -2183,7 +2223,7 @@
    shext:shape  ex:Item
    .                     
    
-<#aOrc-ac> rdf:type shext:NotValid ;
+<#aOrc-ac> rdf:type shext:Valid ;
    mf:name      "aOrc-ac" ;
    rdfs:comment "a|c -> ac = Fail" ;
    shext:status mf:proposed ;
@@ -2194,7 +2234,7 @@
    .                        
    
 <#ab-ab-rdf> rdf:type shext:Valid_FromRDF ;
-   mf:name      "ab-ab" ;
+   mf:name      "ab-ab-rdf" ;
    rdfs:comment "ab -> ab = ALL" ;
    shext:status mf:proposed ;
    shext:schema   <ab_shex.ttl> ;
@@ -2344,16 +2384,107 @@
    shext:shape  ex:a
    .  
 
-   
-<#recursion_skos> rdf:type shext:Valid ;
-   mf:name      "recursion_skos" ;
-   rdfs:comment "recursion_skos" ;
+<#range2-4-2> rdf:type shext:Valid ;
+   mf:name      "range2-4_2" ;
+   rdfs:comment "range2-4_2" ;
    shext:status mf:proposed ;
-   shext:schema   <skos.shex> ;
-   shext:instance <skos.ttl> ;
-   shext:iri    ex:MyConcept ; 
-   shext:shape  ex:SkosConceptShape
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
    .  
+
+<#range2-4-1> rdf:type shext:NotValid ;
+   mf:name      "range2-4_1" ;
+   rdfs:comment "range2-4_1" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#range2-4-3> rdf:type shext:Valid ;
+   mf:name      "range2-4_3" ;
+   rdfs:comment "range2-4_3" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range2-4-4> rdf:type shext:Valid ;
+   mf:name      "range2-4_4" ;
+   rdfs:comment "range2-4_4" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+<#range2-4-5> rdf:type shext:NotValid ;
+   mf:name      "range2-4_5" ;
+   rdfs:comment "range2-4_5" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4.shex> ;
+   shext:instance <aaaaa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#rangeMin2-1> rdf:type shext:NotValid ;
+   mf:name      "rangeMin2-1" ;
+   rdfs:comment "rangeMin2-1" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+   
+   
+<#range2-4-2_plain> rdf:type shext:Valid ;
+   mf:name      "range2-4_2_plain" ;
+   rdfs:comment "range2-4_2_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range2-4_plain.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range1-2-1_plain> rdf:type shext:Valid ;
+   mf:name      "range1-2_1_plain" ;
+   rdfs:comment "range1-2_1_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range1-2_plain.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+<#range1-2-2_plain> rdf:type shext:Valid ;
+   mf:name      "range1-2_2_plain" ;
+   rdfs:comment "range1-2_2_plain" ;
+   shext:status mf:proposed ;
+   shext:schema   <range1-2_plain.shex> ;
+   shext:instance <aa.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .  
+
+# Commented because it generates lots of solutions...
+#<#recursion_skos> rdf:type shext:Valid ;
+#   mf:name      "recursion_skos" ;
+#   rdfs:comment "recursion_skos" ;
+#   shext:status mf:proposed ;
+#   shext:schema   <skos.shex> ;
+#   shext:instance <skos.ttl> ;
+#   shext:iri    ex:MyConcept ; 
+#   shext:shape  ex:SkosConceptShape
+#   .  
    
 # ShEx non-standard extensions
    
@@ -2396,4 +2527,64 @@
    shext:iri    ex:item ; 
    shext:shape  ex:Item
    .  
+      
+<#optOr2_closed> rdf:type shext:NotValid ;
+   mf:name      "optOr2_closed" ;
+   rdfs:comment "optOr 2 closed" ;
+   shext:status mf:proposed ;
+   shext:schema   <optOrClosed.shex> ;
+   shext:instance <optOr2.ttl> ;
+   shext:iri    ex:x 
+   .
+
+# With closed shapes it fails
+<#__abq_qc_q-a_closed> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-a_closed" ;
+   rdfs:comment "((ab?)?c)? -> a = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q_closed.shex> ;
+   shext:instance <a.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+
+# With closed shapes it fails...
+<#__abq_qc_q-b_closed> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-b_closed" ;
+   rdfs:comment "((ab?)?c)? -> b = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q_closed.shex> ;
+   shext:instance <b.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
    
+<#__abq_qc_q-ab_closed> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-ab_closed" ;
+   rdfs:comment "((ab?)?c)? -> ab = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q_closed.shex> ;
+   shext:instance <ab.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+
+<#__abq_qc_q-bc_closed> rdf:type shext:NotValid ;
+   mf:name      "__abq_qc_q-bc" ;
+   rdfs:comment "((ab?)?c)? -> bc = FAIL" ;
+   shext:status mf:proposed ;
+   shext:schema   <__abq_qc_q_closed.shex> ;
+   shext:instance <bc.ttl> ;
+   shext:iri    ex:item ; 
+   shext:shape  ex:Item
+   .
+
+# with open shapes B is a remaining triple
+<#aqbq-B_closed> rdf:type shext:NotValid ;
+   mf:name      "aqbq-B_closed" ;
+   rdfs:comment "a?b?->B = Fail" ;
+   shext:status mf:proposed ;
+   shext:schema   <aqbq_closed.shex> ;
+   shext:instance <notB.ttl> ;
+   shext:iri    ex:item ; 
+   .            
