@@ -1,6 +1,6 @@
 prefix :     <http://example.org/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
-prefix shex: <http://www.w3.org/2013/ShEx/ns#>
+prefix sh:   <http://www.w3.org/ns/shacl/core#>
 
-:a { :p shex:NonIRI } 
+:a { :p sh:NonIRI } 

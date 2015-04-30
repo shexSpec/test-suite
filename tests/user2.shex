@@ -1,7 +1,7 @@
 prefix :     <http://example.org/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
-prefix shex: <http://www.w3.org/2013/ShEx/ns#>
+prefix sh:   <http://www.w3.org/ns/shacl/core#>
 
 :IssueShape {                    # An <IssueShape> has:
  :state (1 :unassigned :assigned), # state which is
@@ -15,5 +15,5 @@ prefix shex: <http://www.w3.org/2013/ShEx/ns#>
      |                               #  or
        foaf:givenName xsd:string+,   #   one or more givenNames
        foaf:familyName xsd:string)   #   and one familyName.
-	, foaf:mbox shex:IRI              
+	, foaf:mbox sh:IRI              
 }
