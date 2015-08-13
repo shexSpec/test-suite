@@ -116,7 +116,7 @@
    # No shape assigned
    .
 
- <#disjunction2> rdf:type shext:Valid ;
+<#disjunction2> rdf:type shext:Valid ;
    mf:name      "disjunction2" ;
    rdfs:comment "disjunction 2 " ;
    shext:status mf:proposed ;
@@ -385,7 +385,7 @@
    shext:shape  ex:a
    .
 
-<#a-2string-no-valid> rdf:type shext:NonValid ;
+<#a-2string-no-valid> rdf:type shext:NonValid ; // @@ NotValid ?
    mf:name      "a-2string-no-valid" ;
    rdfs:comment "a-2string 2 strings for p" ;
    shext:status mf:proposed ;
@@ -393,7 +393,7 @@
    shext:instance <a-2string.ttl> ;
    .
    
-<#a-string-no-valid> rdf:type shext:NonValid ;
+<#a-string-no-valid> rdf:type shext:NonValid ; // @@ NotValid ?
    mf:name      "a-string-no-valid" ;
    rdfs:comment "a-string with no value for p" ;
    shext:status mf:proposed ;
@@ -2194,7 +2194,7 @@
    shext:shape  ex:Item
    .                        
    
-<#ab-ab-rdf> rdf:type shext:Valid_FromRDF ;
+<#ab-ab-rdf> rdf:type shext:Valid_FromRDF ; # @@ what's that?
    mf:name      "ab-ab-rdf" ;
    rdfs:comment "ab -> ab = ALL" ;
    shext:status mf:proposed ;
