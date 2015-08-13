@@ -1,0 +1,27 @@
+{
+  "name": "shex-test-suite",
+  "version": "0.1.0",
+  "author": {"name":"Jose Labra Gayo"},
+  "keywords": [
+    "shex", "shape expressions",
+    "rdf"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "n3": "0.4.3"
+  },
+  "main": "./shex-test-suite.js",
+  "scripts": {
+    "manifest": "./tests/genJSON.js ./tests/manifest.ttl > ./tests/manifest.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shexSpec/test-suite"
+  },
+  "bugs": {
+    "url": "https://github.com/shexSpec/test-suite/issues"
+  }
+}
