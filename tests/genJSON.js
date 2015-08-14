@@ -61,6 +61,18 @@ function genText () {
       "schema": {
         "@id": "shext:schema",
         "@type": "@id"
+      },
+      "instance": {
+        "@id": "shext:instance",
+        "@type": "@id"
+      },
+      "iri": {
+        "@id": "shext:iri",
+        "@type": "@id"
+      },
+      "shape": {
+        "@id": "shext:shape",
+        "@type": "@id"
       }
     },
     "@graph": g
