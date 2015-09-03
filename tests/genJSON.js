@@ -3,7 +3,7 @@
 // Parse arguments
 var args = process.argv.slice(2);
 if (args > 1 || args.indexOf("-help") !== -1 || args.indexOf("--help") !== -1) {
-  console.error('usage: genJSON [manifest]');
+  console.error('usage: genJSON manifest.ttl > manifest.jsonld');
   return process.exit(1);
 }
 
@@ -19,11 +19,11 @@ var P = {
   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
   "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-  "shext":   "http://www.w3.org/ns/shextest#",
-  "ex":     "http://example.org/"
+  "shext":   "http://www.w3.org/ns/shextest#"
 };
 
 var apparentBase = __dirname + "/manifest";
+var stripPath = apparentBase.length;
 parser.parse(
   "@base <" + apparentBase + "> .\n"+
   fs.readFileSync(args[0], "utf8"),
@@ -37,44 +37,7 @@ parser.parse(
 function genText () {
   var g = [];
   var ret = {
-    "@context": {
-      "@base": "http://shexspec.github.io/test-suite/tests/manifest.ttl",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-      "qt": "http://www.w3.org/2001/sw/DataAccess/tests/test-query#",
-      "shext": "http://www.w3.org/ns/shextest#",
-      "ex": "http://example.org/",
-      "mf:entries":
-      {
-        "@id": "mf:entries",
-        "@container": "@list",
-        "@type": "@id"
-      },
-      "name": "mf:name",
-      "name": "mf:name",
-      "comment": "rdfs:comment",
-      "status": {
-        "@id": "shext:status",
-        "@type": "@id"
-      },
-      "schema": {
-        "@id": "shext:schema",
-        "@type": "@id"
-      },
-      "instance": {
-        "@id": "shext:instance",
-        "@type": "@id"
-      },
-      "iri": {
-        "@id": "shext:iri",
-        "@type": "@id"
-      },
-      "shape": {
-        "@id": "shext:shape",
-        "@type": "@id"
-      }
-    },
+    "@context": "https://raw.githubusercontent.com/shexSpec/test-suite/gh-pages/tests/manifest-context.jsonld",
     "@graph": g
   };
   store.addPrefixes(P);
@@ -89,35 +52,38 @@ function genText () {
   g.push({
     "@id": "http://shexspec.github.io/test-suite/tests/manifest.ttl",
     "@type": "mf:Manifest",
-    "rdfs:comment": "ShEx tests",
+    "rdfs:comment": manifestComment,
     "mf:entries": entries
   });
-  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid"].map(function (suffix) {
+  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid", "ValidationTest"].map(function (suffix) {
     return P.shext + suffix;
   });
   store.find(null, "rdf:type", null).filter(function (t) {
     return expectedTypes.indexOf(t.object) !== -1;
   }).map(function (t) {
-    return [t.subject, t.object];//.substr(apparentBase.length);
+    return [t.subject, t.object];
+  }).sort(function (l, r) {
+    return entries.indexOf(l[0].substr(stripPath, 999)) >
+      entries.indexOf(r[0].substr(stripPath, 999));
   }).forEach(function (st) {
     var s = st[0], t = st[1];
-    // console.log(s + ":");
     g.push([
 //      ["rdf"  , "type"    , function (v) { return v.substr(P.shext.length); }],
       ["mf"   , "name"    , function (v) { return util.getLiteralValue(v); }],
       ["rdfs" , "comment" , function (v) { return util.getLiteralValue(v); }],
       ["shext", "status"  , function (v) { return "mf:"+v.substr(P.mf.length);   }],
-      ["shext", "schema"  , function (v) { return v.substr(apparentBase.length-8); }],
-      ["shext", "instance", function (v) { return v.substr(apparentBase.length-8); }],
-      ["shext", "iri"     , function (v) { return "ex:"+v.substr(P.ex.length);   }],
-      ["shext", "shape"   , function (v) { return "ex:"+v.substr(P.ex.length);   }]
+      ["shext", "schema"  , function (v) { return v.substr(stripPath-8); }],
+      ["shext", "shape"   , function (v) { return v;   }],
+      ["shext", "data"    , function (v) { return v.substr(stripPath-8); }],
+      ["shext", "focus"   , function (v) { return v;   }],
+      ["shext", "result"  , function (v) { return v.substr(stripPath-8); }]
     ].reduce(function (ret, row) {
       var found = store.findByIRI(s, P[row[0]]+row[1], null);
       // console.log(found);
       if (found.length)
         ret[row[1]] = row[2](found[0].object);
       return ret;
-    }, {"@id": s.substr(apparentBase.length), "@type": "shext:"+t.substr(P.shext.length)}));
+    }, {"@id": s.substr(stripPath), "@type": "shext:"+t.substr(P.shext.length)}));
   });
   console.log(JSON.stringify(ret, null, "  "));
 }
