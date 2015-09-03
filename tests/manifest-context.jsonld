@@ -22,16 +22,20 @@
       "@id": "shext:schema",
       "@type": "@id"
     },
-    "instance": {
-      "@id": "shext:instance",
-      "@type": "@id"
-    },
-    "iri": {
-      "@id": "shext:iri",
-      "@type": "@id"
-    },
     "shape": {
       "@id": "shext:shape",
+      "@type": "@id"
+    },
+    "data": {
+      "@id": "shext:data",
+      "@type": "@id"
+    },
+    "focus": {
+      "@id": "shext:focus",
+      "@type": "@id"
+    },
+    "result": {
+      "@id": "shext:result",
       "@type": "@id"
     }
   }
