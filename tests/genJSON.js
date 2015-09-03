@@ -24,6 +24,7 @@ var P = {
 
 var apparentBase = __dirname + "/manifest";
 var stripPath = apparentBase.length;
+
 parser.parse(
   "@base <" + apparentBase + "> .\n"+
   fs.readFileSync(args[0], "utf8"),
@@ -49,41 +50,40 @@ function genText () {
     entries.push(store.find(head, "rdf:first", null)[0].object);
     head = store.find(head, "rdf:rest", null)[0].object;
   }
+  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid", "ValidationTest"].map(function (suffix) {
+    return P.shext + suffix;
+  });
   g.push({
     "@id": "http://shexspec.github.io/test-suite/tests/manifest.ttl",
     "@type": "mf:Manifest",
     "rdfs:comment": manifestComment,
-    "mf:entries": entries
-  });
-  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid", "ValidationTest"].map(function (suffix) {
-    return P.shext + suffix;
-  });
-  store.find(null, "rdf:type", null).filter(function (t) {
-    return expectedTypes.indexOf(t.object) !== -1;
-  }).map(function (t) {
-    return [t.subject, t.object];
-  }).sort(function (l, r) {
-    return entries.indexOf(l[0].substr(stripPath, 999)) >
-      entries.indexOf(r[0].substr(stripPath, 999));
-  }).forEach(function (st) {
-    var s = st[0], t = st[1];
-    g.push([
-//      ["rdf"  , "type"    , function (v) { return v.substr(P.shext.length); }],
-      ["mf"   , "name"    , function (v) { return util.getLiteralValue(v); }],
-      ["rdfs" , "comment" , function (v) { return util.getLiteralValue(v); }],
-      ["shext", "status"  , function (v) { return "mf:"+v.substr(P.mf.length);   }],
-      ["shext", "schema"  , function (v) { return v.substr(stripPath-8); }],
-      ["shext", "shape"   , function (v) { return v;   }],
-      ["shext", "data"    , function (v) { return v.substr(stripPath-8); }],
-      ["shext", "focus"   , function (v) { return v;   }],
-      ["shext", "result"  , function (v) { return v.substr(stripPath-8); }]
-    ].reduce(function (ret, row) {
-      var found = store.findByIRI(s, P[row[0]]+row[1], null);
-      // console.log(found);
-      if (found.length)
-        ret[row[1]] = row[2](found[0].object);
-      return ret;
-    }, {"@id": s.substr(stripPath), "@type": "shext:"+t.substr(P.shext.length)}));
+    "mf:entries": store.find(null, "rdf:type", null).filter(function (t) {
+      return expectedTypes.indexOf(t.object) !== -1;
+    }).map(function (t) {
+      return [t.subject, t.object];
+    }).sort(function (l, r) {
+      return entries.indexOf(l[0].substr(stripPath, 999)) >
+        entries.indexOf(r[0].substr(stripPath, 999));
+    }).map(function (st) {
+      var s = st[0], t = st[1];
+      return [
+        //      ["rdf"  , "type"    , function (v) { return v.substr(P.shext.length); }],
+        ["mf"   , "name"    , function (v) { return util.getLiteralValue(v); }],
+        ["rdfs" , "comment" , function (v) { return util.getLiteralValue(v); }],
+        ["shext", "status"  , function (v) { return "mf:"+v.substr(P.mf.length); }],
+        ["shext", "schema"  , function (v) { return v.substr(stripPath-8); }],
+        ["shext", "shape"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
+        ["shext", "data"    , function (v) { return v.substr(stripPath-8); }],
+        ["shext", "focus"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
+        ["shext", "result"  , function (v) { return v.substr(stripPath-8); }]
+      ].reduce(function (ret, row) {
+        var found = store.findByIRI(s, P[row[0]]+row[1], null);
+        // console.log(found);
+        if (found.length)
+          ret[row[1]] = row[2](found[0].object);
+        return ret;
+      }, {"@id": s.substr(stripPath), "@type": "shext:"+t.substr(P.shext.length)});
+    })
   });
   console.log(JSON.stringify(ret, null, "  "));
 }
