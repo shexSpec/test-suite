@@ -50,7 +50,7 @@ function genText () {
     entries.push(store.find(head, "rdf:first", null)[0].object);
     head = store.find(head, "rdf:rest", null)[0].object;
   }
-  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid", "ValidationTest"].map(function (suffix) {
+  var expectedTypes = ["NotValid", "PositiveSyntax", "Valid", "ValidationTest", "ValidationFailure"].map(function (suffix) {
     return P.shext + suffix;
   });
   g.push({
@@ -58,9 +58,18 @@ function genText () {
     "@type": "mf:Manifest",
     "rdfs:comment": manifestComment,
     "mf:entries": store.find(null, "rdf:type", null).filter(function (t) {
-      return expectedTypes.indexOf(t.object) !== -1;
+      var ret = expectedTypes.indexOf(t.object) !== -1;
+      if (ret === false &&
+          t.object !== "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#Manifest") {
+        console.warn("test " + t.subject + " has unexpected type " + t.object);
+      }
+      return ret;
     }).map(function (t) {
       return [t.subject, t.object];
+    }).filter(function (t) {
+      var ret = entries.indexOf(t[0].substr(stripPath, 999)) !== -1;
+      if (ret === false) { console.warn("unreferenced test: " + t[0]); }
+      return ret;
     }).sort(function (l, r) {
       return entries.indexOf(l[0].substr(stripPath, 999)) >
         entries.indexOf(r[0].substr(stripPath, 999));
