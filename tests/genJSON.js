@@ -15,11 +15,10 @@ var store = N3.Store();
 //var json = fs.readFileSync(args[0]).toString();
 
 var P = {
-  "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
   "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-  "sht":   "http://www.w3.org/ns/sht#"
+  "sht": "http://www.w3.org/ns/shacl/test-suite#"
 };
 
 var apparentBase = __dirname + "/manifest";
@@ -86,23 +85,25 @@ function genText () {
         entries.indexOf(r[0].substr(stripPath, 999));
     }).map(function (st) {
       var s = st[0], t = st[1];
+      var a = store.findByIRI(s, "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action", null)[0].object;
       return [
         //      ["rdf"  , "type"    , function (v) { return v.substr(P.sht.length); }],
-        ["mf"   , "name"    , function (v) { return util.getLiteralValue(v); }],
-        ["rdfs" , "comment" , function (v) { return util.getLiteralValue(v); }],
-        ["sht", "status"  , function (v) { return "mf:"+v.substr(P.mf.length); }],
-        ["sht", "schema"  , function (v) { return v.substr(stripPath-8); }],
-        ["sht", "shape"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
-        ["sht", "data"    , function (v) { return v.substr(stripPath-8); }],
-        ["sht", "focus"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
-        ["sht", "result"  , function (v) { return v.substr(stripPath-8); }]
+        [s, "mf"   , "name"    , function (v) { return util.getLiteralValue(v); }],
+        [s, "rdfs" , "comment" , function (v) { return util.getLiteralValue(v); }],
+        [s, "mf", "status"  , function (v) { return "mf:"+v.substr(P.mf.length); }],
+        [a, "sht", "schema"  , function (v) { return v.substr(stripPath-8); }],
+        [a, "sht", "shape"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
+        [a, "sht", "data"    , function (v) { return v.substr(stripPath-8); }],
+        [a, "sht", "focus"   , function (v) { return v.indexOf(__dirname) === 0 ? v.substr(__dirname.length+1) : v; }],
+        [s, "mf", "result"  , function (v) { return v.substr(stripPath-8); }]
       ].reduce(function (ret, row) {
-        var found = store.findByIRI(s, P[row[0]]+row[1], null);
+        var found = store.findByIRI(row[0], P[row[1]]+row[2], null);
         // console.log(found);
+        var target = row[0] === s ? ret : ret.action;
         if (found.length)
-          ret[row[1]] = row[2](found[0].object);
+          target[row[2]] = row[3](found[0].object);
         return ret;
-      }, {"@id": s.substr(stripPath), "@type": "sht:"+t.substr(P.sht.length)});
+      }, {"@id": s.substr(stripPath), "@type": "sht:"+t.substr(P.sht.length), action: {}});
     })
   });
   var remaining = Object.keys(unmatched);

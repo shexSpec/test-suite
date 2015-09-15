@@ -4,9 +4,7 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
-    "qt": "http://www.w3.org/2001/sw/DataAccess/tests/test-query#",
-    "shext": "http://www.w3.org/ns/shextest#",
-    "ex": "http://example.org/",
+    "sht": "http://www.w3.org/ns/shtest#",
     "mf:entries": {
       "@id": "mf:entries",
       "@container": "@list",
@@ -15,27 +13,31 @@
     "name": "mf:name",
     "comment": "rdfs:comment",
     "status": {
-      "@id": "shext:status",
+      "@id": "mf:status",
+      "@type": "@id"
+    },
+    "action": {
+      "@id": "sht:schema",
       "@type": "@id"
     },
     "schema": {
-      "@id": "shext:schema",
+      "@id": "sht:schema",
       "@type": "@id"
     },
     "shape": {
-      "@id": "shext:shape",
+      "@id": "sht:shape",
       "@type": "@id"
     },
     "data": {
-      "@id": "shext:data",
+      "@id": "sht:data",
       "@type": "@id"
     },
     "focus": {
-      "@id": "shext:focus",
+      "@id": "sht:focus",
       "@type": "@id"
     },
     "result": {
-      "@id": "shext:result",
+      "@id": "sht:result",
       "@type": "@id"
     }
   }
