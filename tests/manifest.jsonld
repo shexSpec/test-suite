@@ -5,7 +5,7 @@
       "@id": "http://shexspec.github.io/test-suite/tests/manifest.ttl",
       "@type": "mf:Manifest",
       "rdfs:comment": "ShEx tests",
-      "mf:entries": [
+      "entries": [
         "#a-string-syntax",
         "#simple-star",
         "#a-string-valid",
