@@ -17,7 +17,7 @@
       "@type": "@id"
     },
     "action": {
-      "@id": "sht:schema",
+      "@id": "sht:action",
       "@type": "@id"
     },
     "schema": {
