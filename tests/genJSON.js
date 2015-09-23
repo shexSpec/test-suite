@@ -63,7 +63,7 @@ function genText () {
     "@id": "http://shexspec.github.io/test-suite/tests/manifest.ttl",
     "@type": "mf:Manifest",
     "rdfs:comment": manifestComment,
-    "mf:entries": store.find(null, "rdf:type", null).filter(function (t) {
+    "entries": store.find(null, "rdf:type", null).filter(function (t) {
       var ret = expectedTypes.indexOf(t.object) !== -1;
       if (ret === false &&
           t.object !== "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#Manifest") {
