@@ -33,15 +33,17 @@
    mf:name      "a-string-syntax" ;
    rdfs:comment "Shex Expression with an single arc rule" ;
    shext:status mf:proposed ;
-   shext:schema <a-string.shex> ;
-   .
+   mf:action [
+   	shext:schema <a-string.shex> 
+   ] .
 
 <#simple-star> rdf:type shext:PositiveSyntax ;
    mf:name      "simple-star" ;
    rdfs:comment "Shex Expression with an single arc rule and a star" ;
    shext:status mf:proposed ;
-   shext:schema <simple-star.shex> ;
-   .
+   mf:action [
+  	 shext:schema <simple-star.shex> 
+   ] .
 
 <#a-string-valid> rdf:type shext:Valid ;
    mf:name      "a-string-valid" ;
