@@ -424,7 +424,7 @@
    mf:action [
       shext:schema   <a-string.shex> ;
       shext:data     <a-2string.ttl> ;
-      shext:focus    <http://example.org/x>
+      shext:focus    <http://example.org/x> ;
       shext:shape    <http://example.org/a>
    ] .
 
@@ -435,7 +435,7 @@
    mf:action [
       shext:schema   <a-string.shex> ;
       shext:data     <a-string-no-p.ttl> ;
-      shext:focus    <http://example.org/x>
+      shext:focus    <http://example.org/x> ;
       shext:shape    <http://example.org/a>
    ] .
 
@@ -1268,7 +1268,6 @@
    mf:name      "ap-0" ;
    rdfs:comment "a+ -> 0 = FAIL" ;
    shext:status mf:proposed ;
-   mf:action [
    mf:action [
       shext:schema   <ap.shex> ;
       shext:data     <0.ttl> ;
