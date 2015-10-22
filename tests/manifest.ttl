@@ -258,7 +258,7 @@
    mf:action [
       shext:schema   <opt.shex> ;
       shext:data     <opt0.ttl> ;
-      shext:focus  <<http://example.org/y> ;
+      shext:focus  <http://example.org/y> ;
       shext:shape  <http://example.org/a>
    ] .
 
