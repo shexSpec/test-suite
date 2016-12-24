@@ -27,6 +27,10 @@
       "@id": "sht:shape",
       "@type": "@id"
     },
+    "termResolver": {
+      "@id": "sht:termResolver",
+      "@type": "@id"
+    },
     "data": {
       "@id": "sht:data",
       "@type": "@id"
